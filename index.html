@@ -495,8 +495,43 @@
     color: var(--ink); font-size: 11px; font-weight: 700;
   }
 
+  /* Hamburger */
+  .hamburger {
+    display: none; flex-direction: column; justify-content: center; align-items: center;
+    gap: 5px; width: 40px; height: 40px; padding: 8px;
+    border-radius: 8px; cursor: pointer; background: none; border: none; flex-shrink: 0;
+  }
+  .hamburger span {
+    display: block; width: 22px; height: 2px;
+    background: var(--ink); border-radius: 2px; transition: all 0.25s ease;
+    transform-origin: center;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* Mobile menu */
+  .mobile-menu {
+    display: none; position: fixed; inset: 0; z-index: 49;
+    background: var(--cream); flex-direction: column;
+    padding: 80px 28px 40px; overflow-y: auto; gap: 0;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu .nav-link {
+    font-family: 'Fraunces', serif; font-size: 28px; font-weight: 300;
+    padding: 18px 0; border-bottom: 1px solid var(--hairline);
+    border-radius: 0; color: var(--ink);
+  }
+  .mobile-menu .nav-link::before { display: none; }
+  .mobile-menu-footer {
+    margin-top: 40px; display: flex; flex-direction: column; gap: 16px;
+  }
+  .mobile-menu-footer .nav-cta { justify-content: center; }
+
   /* Responsive */
   @media (max-width: 960px) {
+    .hamburger { display: flex; }
+    .nav-actions { display: none; }
     .nav-inner { padding: 14px 20px; }
     .nav-links { display: none; }
     .page { padding: 0 20px; }
@@ -562,7 +597,7 @@
       <a class="nav-link" href="#/clients" data-route="clients">Clients</a>
       <a class="nav-link" href="#/contact" data-route="contact">Contact</a>
     </div>
-    <div style="display:flex;align-items:center;gap:12px;">
+    <div class="nav-actions" style="display:flex;align-items:center;gap:12px;">
       <div class="lang-switch">
         <a href="index.html" class="active">EN</a>
         <a href="FlexiGulf-ar.html">عر</a>
@@ -572,8 +607,30 @@
         <svg class="arrow" width="12" height="12" viewBox="0 0 12 12"><path d="M3 9L9 3M9 3H4M9 3V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
     </div>
+    <button class="hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a class="nav-link" href="#/" data-route="home">Home</a>
+  <a class="nav-link" href="#/corporate" data-route="corporate">Corporate</a>
+  <a class="nav-link" href="#/services" data-route="services">Services</a>
+  <a class="nav-link" href="#/clients" data-route="clients">Clients</a>
+  <a class="nav-link" href="#/contact" data-route="contact">Contact</a>
+  <div class="mobile-menu-footer">
+    <div class="lang-switch">
+      <a href="index.html" class="active">EN</a>
+      <a href="FlexiGulf-ar.html">عر</a>
+    </div>
+    <a href="#/contact" class="nav-cta" id="mobileMenuCta">
+      Request a proposal
+      <svg class="arrow" width="12" height="12" viewBox="0 0 12 12"><path d="M3 9L9 3M9 3H4M9 3V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+</div>
 
 <!-- ============= APP MOUNT ============= -->
 <main id="app"></main>
@@ -1286,6 +1343,23 @@
       window._tInt = setInterval(() => { i = (i + 1) % quotes.length; render(); }, 7000);
     }
   }
+
+  // Hamburger menu
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  function closeMobileMenu() {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  hamburger.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.toggle('open');
+    hamburger.classList.toggle('open', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+  mobileMenu.querySelectorAll('.nav-link, #mobileMenuCta').forEach(el => {
+    el.addEventListener('click', closeMobileMenu);
+  });
 
   // initial
   if (!location.hash) location.hash = '#/';
