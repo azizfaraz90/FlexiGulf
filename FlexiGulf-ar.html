@@ -1,0 +1,769 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>فليكسي جلف — خدمات الموارد البشرية والمحاسبة والتأشيرات في المملكة العربية السعودية</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,300;9..144,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root{--ink:#1C1A18;--ink-2:#2A2724;--ink-mute:#6B655D;--cream:#F5F0E8;--cream-2:#EDE5D6;--sand:#E8DDCB;--hairline:#D8CFBE;--gold:#B98833;--gold-deep:#8E6620;--gold-wash:#F0E4CD;--charcoal:#121212}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--cream);color:var(--ink);font-family:'Cairo','Noto Naskh Arabic',sans-serif;-webkit-font-smoothing:antialiased;direction:rtl;font-size:16px;line-height:1.7}
+body{background-image:radial-gradient(1200px 600px at 20% -10%,rgba(185,136,51,.06),transparent 60%),radial-gradient(900px 500px at 110% 40%,rgba(28,26,24,.04),transparent 60%)}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+img,svg{display:block}
+.naskh{font-family:'Noto Naskh Arabic',serif}
+.eyebrow{font-family:'Cairo',sans-serif;font-size:12px;color:var(--ink-mute);font-weight:600}
+.eyebrow .dot{display:inline-block;width:6px;height:6px;background:var(--gold);border-radius:50%;margin-left:10px;vertical-align:middle}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:50;background:rgba(245,240,232,.82);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid transparent;transition:border-color .3s,background .3s}
+.nav.scrolled{border-color:var(--hairline);background:rgba(245,240,232,.95)}
+.nav-inner{max-width:1360px;margin:0 auto;padding:18px 40px;display:flex;align-items:center;justify-content:space-between;gap:40px}
+.nav-logo svg{height:36px;width:170px}
+.nav-links{display:flex;gap:6px;align-items:center}
+.nav-link{position:relative;font-size:14px;font-weight:600;color:var(--ink-2);padding:10px 16px;border-radius:999px;transition:all .2s}
+.nav-link:hover{color:var(--ink);background:rgba(28,26,24,.04)}
+.nav-link.active{color:var(--ink)}
+.nav-link.active::before{content:'';position:absolute;right:16px;left:16px;bottom:4px;height:2px;background:var(--gold)}
+.nav-cta{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--cream);padding:11px 20px;border-radius:999px;font-size:13px;font-weight:700;transition:all .2s;font-family:'Cairo',sans-serif}
+.nav-cta:hover{background:var(--gold-deep);transform:translateY(-1px)}
+.lang-switch{display:inline-flex;align-items:center;gap:2px;border:1px solid var(--hairline);border-radius:999px;padding:4px;font-size:12px;font-weight:600;font-family:'JetBrains Mono',monospace}
+.lang-switch a{padding:5px 10px;border-radius:999px;transition:all .2s;color:var(--ink-mute)}
+.lang-switch a.active{background:var(--ink);color:var(--cream)}
+.lang-switch a:hover:not(.active){color:var(--ink);background:rgba(28,26,24,.05)}
+
+/* PAGE */
+.page{max-width:1360px;margin:0 auto;padding:0 40px}
+.page-wrap{opacity:0;transform:translateY(12px);animation:fadeUp .5s cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes fadeUp{to{opacity:1;transform:none}}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:999px;font-size:14px;font-weight:700;transition:all .2s;cursor:pointer;font-family:'Cairo',sans-serif}
+.btn-primary{background:var(--ink);color:var(--cream)}
+.btn-primary:hover{background:var(--gold-deep);transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--hairline)}
+.btn-ghost:hover{border-color:var(--ink);background:rgba(28,26,24,.03)}
+
+/* HERO */
+.hero{padding:80px 0 100px}
+.hero-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:48px;padding-bottom:20px;border-bottom:1px solid var(--hairline);font-size:12px;color:var(--ink-mute);font-weight:500}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:80px;align-items:end}
+.hero h1{font-family:'Noto Naskh Arabic',serif;font-weight:700;font-size:clamp(48px,6.5vw,92px);line-height:1.2;color:var(--ink)}
+.hero h1 .accent{color:var(--gold-deep)}
+.hero-lede{font-size:17px;color:var(--ink-2);line-height:1.75;max-width:440px;margin-bottom:32px}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
+.hero-stats{margin-top:80px;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline)}
+.stat{padding:28px 0 28px 24px;border-left:1px solid var(--hairline)}
+.stat:first-child{border-left:none;padding-left:0}
+.stat-num{font-family:'Fraunces',serif;font-size:48px;line-height:1;font-weight:400;letter-spacing:-.02em;direction:ltr;text-align:right}
+.stat-num .unit{font-size:22px;color:var(--gold)}
+.stat-label{margin-top:10px;font-size:13px;color:var(--ink-mute)}
+
+/* VISUAL PLACEHOLDERS */
+.vis{position:relative;background:linear-gradient(180deg,var(--sand),var(--cream-2));background-size:cover;background-position:center;border:1px solid var(--hairline);overflow:hidden;border-radius:2px}
+.vis-tag{position:absolute;top:20px;left:20px;background:var(--ink);color:var(--cream);font-family:'Cairo',sans-serif;font-size:11px;font-weight:600;padding:6px 10px}
+.vis-caption{position:absolute;right:20px;bottom:20px;font-family:'Noto Naskh Arabic',serif;font-size:18px;color:var(--ink);line-height:1.4}
+.vis-label{position:absolute;top:16px;right:16px;font-family:'Cairo',sans-serif;font-size:10px;color:var(--gold-deep);opacity:.7;font-weight:600}
+
+/* MARQUEE */
+.marquee{border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);overflow:hidden;padding:24px 0;background:var(--cream)}
+.marquee-track{display:flex;gap:60px;white-space:nowrap;animation:scrollRTL 40s linear infinite;font-family:'Noto Naskh Arabic',serif;font-size:20px;color:var(--ink-2)}
+.marquee-track span{display:inline-flex;align-items:center;gap:60px}
+.marquee-track .sep{color:var(--gold)}
+@keyframes scrollRTL{to{transform:translateX(50%)}}
+
+/* SECTIONS */
+.section{padding:120px 0}
+.section-head{display:grid;grid-template-columns:1fr 2fr;gap:80px;align-items:end;margin-bottom:64px;padding-bottom:32px;border-bottom:1px solid var(--hairline)}
+.section-head h2{font-family:'Noto Naskh Arabic',serif;font-weight:700;font-size:clamp(34px,4.5vw,58px);line-height:1.3}
+.section-head h2 .accent{color:var(--gold-deep)}
+.section-head p{max-width:520px;color:var(--ink-2);font-size:15px}
+
+/* SERVICES GRID */
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--hairline);border:1px solid var(--hairline)}
+.service-card{background:var(--cream);padding:40px 32px 32px;display:flex;flex-direction:column;gap:20px;min-height:360px;transition:background .3s;cursor:pointer;text-align:right}
+.service-card:hover{background:var(--cream-2)}
+.service-num{font-family:'Fraunces',serif;font-style:italic;font-size:14px;color:var(--gold-deep);direction:ltr;text-align:left}
+.service-icon{width:56px;height:56px;border:1px solid var(--ink);display:flex;align-items:center;justify-content:center;color:var(--ink);margin-right:auto}
+.service-title{font-family:'Noto Naskh Arabic',serif;font-size:24px;font-weight:700;line-height:1.35}
+.service-desc{color:var(--ink-mute);font-size:14px;flex-grow:1;line-height:1.75}
+.service-cta{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--ink);padding-top:16px;border-top:1px solid var(--hairline)}
+
+/* APPROACH */
+.approach{background:var(--ink);color:var(--cream);margin:60px 0}
+.approach-inner{max-width:1360px;margin:0 auto;padding:100px 40px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr)}
+.step{padding:32px 0 32px 24px;border-left:1px solid rgba(245,240,232,.15);display:flex;flex-direction:column;gap:16px;text-align:right}
+.step:first-child{border-left:none;padding-left:0}
+.step-num{font-family:'Fraunces',serif;font-style:italic;font-size:60px;color:var(--gold);line-height:1;direction:ltr;text-align:right}
+.step-title{font-family:'Noto Naskh Arabic',serif;font-size:22px;font-weight:700}
+.step-desc{color:rgba(245,240,232,.65);font-size:13.5px;line-height:1.7}
+
+/* TWO-UP */
+.two-up{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;padding:120px 0}
+.two-up h3{font-family:'Noto Naskh Arabic',serif;font-weight:700;font-size:42px;line-height:1.35;margin:16px 0 20px}
+.two-up h3 .accent{color:var(--gold-deep)}
+.two-up p{color:var(--ink-2);font-size:15px;margin-bottom:14px;line-height:1.75}
+.check-list{list-style:none;margin-top:24px;display:flex;flex-direction:column;gap:12px}
+.check-list li{display:flex;gap:12px;align-items:flex-start;font-size:14px;flex-direction:row-reverse;text-align:right}
+.check-list li::after{content:'';width:16px;height:16px;flex-shrink:0;margin-top:3px;background:var(--gold);clip-path:polygon(0 50%,40% 100%,100% 0%,40% 80%);transform:scaleX(-1)}
+
+/* CTA BAND */
+.cta-band{padding:100px 40px;margin:60px auto;max-width:1360px;background:var(--gold-wash);border:1px solid var(--hairline);display:grid;grid-template-columns:1.4fr 1fr;gap:60px;align-items:center}
+.cta-band h3{font-family:'Noto Naskh Arabic',serif;font-weight:700;font-size:44px;line-height:1.35}
+.cta-band h3 .accent{color:var(--gold-deep)}
+.cta-band p{color:var(--ink-2);margin:16px 0 28px;line-height:1.75}
+
+/* FOOTER */
+footer{background:var(--charcoal);color:var(--cream);padding:80px 0 32px}
+.footer-inner{max-width:1360px;margin:0 auto;padding:0 40px}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;padding-bottom:60px;border-bottom:1px solid rgba(245,240,232,.15)}
+.footer-brand h4{font-family:'Noto Naskh Arabic',serif;font-size:26px;font-weight:700;margin-bottom:16px;max-width:360px;line-height:1.45}
+.footer-brand p{color:rgba(245,240,232,.6);font-size:14px;max-width:360px;line-height:1.7}
+.footer-col h5{font-size:12px;font-weight:700;color:var(--gold);margin-bottom:20px;text-transform:uppercase;letter-spacing:.04em}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:12px}
+.footer-col a{color:rgba(245,240,232,.75);font-size:14px;transition:color .2s}
+.footer-col a:hover{color:var(--gold)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:32px;font-size:12px;color:rgba(245,240,232,.5);font-family:'JetBrains Mono',monospace;direction:ltr}
+
+/* PAGE HERO */
+.page-hero{padding:80px 0 60px;border-bottom:1px solid var(--hairline)}
+.page-hero h1{font-family:'Noto Naskh Arabic',serif;font-weight:700;font-size:clamp(42px,5.5vw,78px);line-height:1.3;margin-top:24px;max-width:1000px}
+.page-hero h1 .accent{color:var(--gold-deep)}
+.page-crumb{font-family:'Cairo',sans-serif;font-size:12px;color:var(--ink-mute);font-weight:600}
+
+/* CORPORATE */
+.statements{padding:100px 0;display:grid;grid-template-columns:240px 1fr;gap:80px}
+.statements-sidebar{position:sticky;top:120px;height:fit-content;display:flex;flex-direction:column;gap:4px}
+.statement-tab{text-align:right;padding:12px 0;font-size:14px;font-weight:600;color:var(--ink-mute);border-bottom:1px solid var(--hairline);transition:color .2s;display:flex;justify-content:space-between;align-items:center}
+.statement-tab .num{font-family:'Fraunces',serif;font-style:italic;font-size:14px;color:var(--gold);direction:ltr}
+.statement-tab.active{color:var(--ink)}
+.statement-card{padding:60px 0;border-bottom:1px solid var(--hairline)}
+.statement-card:last-child{border-bottom:none}
+.statement-card h3{font-family:'Noto Naskh Arabic',serif;font-weight:700;font-size:46px;line-height:1.3;margin-bottom:24px}
+.statement-card h3 .accent{color:var(--gold-deep)}
+.statement-card .lede{font-family:'Noto Naskh Arabic',serif;font-size:20px;line-height:1.65;color:var(--ink-2);margin-bottom:20px;max-width:760px}
+.statement-card p{color:var(--ink-2);font-size:15px;max-width:760px;margin-bottom:12px;line-height:1.8}
+.values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--hairline);border:1px solid var(--hairline);margin-top:32px}
+.value{background:var(--cream);padding:28px 24px;text-align:right}
+.value-num{font-family:'Fraunces',serif;font-style:italic;font-size:13px;color:var(--gold-deep);direction:ltr;text-align:left}
+.value-title{font-family:'Noto Naskh Arabic',serif;font-size:20px;font-weight:700;margin:8px 0 10px}
+.value-desc{font-size:13.5px;color:var(--ink-mute);line-height:1.65}
+.leaders{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:48px}
+.leader-vis{aspect-ratio:4/5;background:linear-gradient(180deg,var(--sand),var(--cream-2));background-size:cover;background-position:center top;border:1px solid var(--hairline);position:relative}
+.leader-vis::before{content:none}
+.leader-name{font-family:'Noto Naskh Arabic',serif;font-size:22px;font-weight:700;margin-top:20px;text-align:right}
+.leader-role{font-size:13px;color:var(--ink-mute);margin-top:4px;text-align:right}
+
+/* SERVICES PAGE */
+.services-page{padding:80px 0 120px}
+.service-detail{display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:start;padding:80px 0;border-bottom:1px solid var(--hairline)}
+.service-detail:last-child{border-bottom:none}
+.sdl{position:sticky;top:120px;text-align:right}
+.service-detail h3{font-family:'Noto Naskh Arabic',serif;font-weight:700;font-size:50px;line-height:1.3;margin:20px 0 24px}
+.service-detail h3 .accent{color:var(--gold-deep)}
+.sdl>p{color:var(--ink-2);font-size:15px;margin-bottom:24px;line-height:1.75}
+.service-features{display:flex;flex-direction:column;gap:2px;background:var(--hairline);border:1px solid var(--hairline)}
+.feat{background:var(--cream);padding:24px 28px;display:grid;grid-template-columns:1fr 40px;gap:20px;align-items:start;transition:background .2s;text-align:right}
+.feat:hover{background:var(--cream-2)}
+.feat-num{font-family:'Fraunces',serif;font-style:italic;font-size:20px;color:var(--gold-deep);direction:ltr;text-align:right}
+.feat-title{font-family:'Noto Naskh Arabic',serif;font-size:18px;font-weight:700;margin-bottom:6px}
+.feat-desc{font-size:13.5px;color:var(--ink-mute);line-height:1.65}
+
+/* CLIENTS */
+.clients-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--hairline);border:1px solid var(--hairline);margin:60px 0}
+.client-cell{background:var(--cream);padding:40px 28px;display:flex;flex-direction:column;gap:8px;align-items:flex-end;min-height:160px;transition:background .2s;text-align:right}
+.client-cell:hover{background:var(--cream-2)}
+.client-name{font-family:'Noto Naskh Arabic',serif;font-size:20px;font-weight:700}
+.client-sector{font-size:11px;color:var(--gold-deep);font-weight:700}
+.client-note{font-size:13px;color:var(--ink-mute);margin-top:auto}
+.testimonial{padding:120px 0;background:var(--cream-2);margin:60px 0}
+.testimonial-inner{max-width:1360px;margin:0 auto;padding:0 40px}
+.testi-quote{font-family:'Noto Naskh Arabic',serif;font-size:clamp(26px,3.5vw,46px);line-height:1.55;max-width:1100px}
+.testi-quote .mark{color:var(--gold)}
+.testi-meta{display:flex;gap:16px;align-items:center;margin-top:40px;font-size:12px;color:var(--ink-mute)}
+.testi-meta .name{color:var(--ink);font-weight:700}
+.testi-nav{display:flex;gap:8px;margin-top:40px}
+.testi-dot{width:8px;height:8px;border-radius:50%;background:var(--hairline);transition:all .2s;cursor:pointer;border:none;padding:0}
+.testi-dot.active{background:var(--gold);width:24px;border-radius:4px}
+.sector-list{display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid var(--hairline)}
+.sector-row{display:grid;grid-template-columns:auto 1fr auto;gap:24px;padding:32px 0 32px 40px;border-bottom:1px solid var(--hairline);align-items:center;border-left:1px solid var(--hairline);text-align:right}
+.sector-row:nth-child(2n){border-left:none;padding-left:0;padding-right:40px}
+.sector-num{font-family:'Fraunces',serif;font-style:italic;font-size:14px;color:var(--gold-deep);direction:ltr}
+.sector-name{font-family:'Noto Naskh Arabic',serif;font-size:22px;font-weight:700}
+.sector-count{font-size:12px;color:var(--ink-mute)}
+
+/* CONTACT */
+.contact-page{padding:80px 0 120px}
+.contact-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:80px;margin-top:60px}
+.contact-form{display:flex;flex-direction:column;gap:20px}
+.field{display:flex;flex-direction:column;gap:8px;text-align:right}
+.field label{font-size:11px;color:var(--ink-mute);font-weight:700}
+.field input,.field textarea,.field select{border:none;border-bottom:1px solid var(--hairline);background:transparent;padding:10px 0;font-family:'Cairo',sans-serif;font-size:15px;color:var(--ink);outline:none;transition:border-color .2s;text-align:right;direction:rtl}
+.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--gold)}
+.field textarea{resize:vertical;min-height:120px}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+.chip{padding:8px 14px;border-radius:999px;border:1px solid var(--hairline);font-size:13px;cursor:pointer;transition:all .2s;background:var(--cream);color:var(--ink-2);font-weight:600}
+.chip.active{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+.chip:hover:not(.active){border-color:var(--ink-2)}
+.contact-info{display:flex;flex-direction:column;gap:32px;text-align:right}
+.info-block{padding-bottom:24px;border-bottom:1px solid var(--hairline)}
+.info-block h4{font-size:11px;color:var(--gold-deep);font-weight:700;margin-bottom:12px}
+.info-block p{font-family:'Noto Naskh Arabic',serif;font-size:20px;line-height:1.5}
+.info-block a{color:var(--ink);border-bottom:1px solid transparent;transition:border-color .2s}
+.info-block a:hover{border-color:var(--gold)}
+.map-ph{aspect-ratio:16/10;margin-top:60px;background:linear-gradient(90deg,rgba(185,136,51,.05) 1px,transparent 1px),linear-gradient(rgba(185,136,51,.05) 1px,transparent 1px),linear-gradient(180deg,var(--sand),var(--cream-2));background-size:40px 40px,40px 40px,100% 100%;border:1px solid var(--hairline);position:relative}
+.map-pin{position:absolute;top:48%;left:54%;width:14px;height:14px;background:var(--gold);border-radius:50%;box-shadow:0 0 0 6px rgba(185,136,51,.25),0 0 0 14px rgba(185,136,51,.12);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 10px rgba(185,136,51,.2),0 0 0 22px rgba(185,136,51,.05)}}
+.map-lbl{position:absolute;top:16px;right:16px;font-size:11px;color:var(--ink-mute)}
+.toast{position:fixed;bottom:32px;left:32px;z-index:100;background:var(--ink);color:var(--cream);padding:16px 22px;border-radius:999px;font-size:13px;font-weight:700;display:flex;align-items:center;gap:10px;transform:translateY(100px);opacity:0;transition:all .4s cubic-bezier(.2,.8,.2,1)}
+.toast.show{transform:none;opacity:1}
+.toast .chk{width:18px;height:18px;border-radius:50%;background:var(--gold);display:inline-flex;align-items:center;justify-content:center;color:var(--ink);font-size:11px;font-weight:700}
+@media(max-width:960px){
+  .nav-inner{padding:14px 20px}
+  .nav-links{display:none}
+  .page{padding:0 20px}
+  .hero{padding:48px 0 60px}
+  .hero-grid,.two-up,.contact-grid,.cta-band,.footer-top,.statements,.service-detail{grid-template-columns:1fr}
+  .hero-stats,.services-grid,.clients-grid,.values-grid,.steps,.sector-list{grid-template-columns:1fr 1fr}
+  .hero-stats .stat,.sector-row{border-left:none;padding-left:0}
+  .statements-sidebar{position:static;flex-direction:row;overflow-x:auto}
+  .sdl{position:static}
+  .two-up,.section{padding:60px 0}
+  .cta-band{padding:60px 28px;margin:40px 20px}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <div style="display:flex;align-items:center;gap:12px;">
+      <div class="lang-switch">
+        <a href="FlexiGulf.html">EN</a>
+        <a href="FlexiGulf-ar.html" class="active">عر</a>
+      </div>
+      <a href="#/contact" class="nav-cta">طلب عرض أسعار</a>
+    </div>
+    <div class="nav-links" id="navLinks">
+      <a class="nav-link" href="#/" data-route="home">الرئيسية</a>
+      <a class="nav-link" href="#/corporate" data-route="corporate">الشركة</a>
+      <a class="nav-link" href="#/services" data-route="services">الخدمات</a>
+      <a class="nav-link" href="#/clients" data-route="clients">العملاء</a>
+      <a class="nav-link" href="#/contact" data-route="contact">تواصل معنا</a>
+    </div>
+    <a href="#/" class="nav-logo" aria-label="فليكسي جلف">
+      <svg viewBox="0 0 152 34" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="height:36px;width:170px;">
+        <!-- Mark -->
+        <path d="M15.2222 9.23139C15.0124 9.28677 14.7784 9.37221 14.5715 9.32997C14.0006 8.13344 13.4194 6.95034 12.5374 5.94639C12.116 5.4668 9.97906 3.80269 9.92847 3.42058C9.90525 3.24546 9.92312 3.20996 10.0284 3.07107C10.5942 2.84198 11.9071 3.80231 12.4562 4.09184C12.9105 4.32924 13.3801 4.53604 13.8619 4.71084C17.2761 5.94191 20.3199 5.5812 23.2204 3.3268C23.5591 3.06348 24.7205 2.15391 25.0736 2.61621C25.0574 3.32674 23.0828 5.59358 22.6716 6.49491C22.3585 7.1812 22.0516 8.08162 21.7216 8.70958C21.5868 8.85427 21.3391 8.85041 21.1308 8.87498C20.8033 9.43969 20.9744 13.5688 20.9856 14.4595C20.6085 14.8233 18.3074 17.0301 18.0298 17.0691C17.6674 16.7855 15.5433 14.7656 15.2891 14.4006C15.2268 13.113 15.3805 10.259 15.2222 9.23139Z" fill="#B98833"/>
+        <path d="M15.2222 9.23139C16.6729 8.36008 19.6278 8.03151 21.1308 8.87498C20.8033 9.43969 20.9744 13.5688 20.9856 14.4595C20.6085 14.8233 18.3074 17.0301 18.0298 17.0691C17.6674 16.7855 15.5433 14.7656 15.2891 14.4006C15.2268 13.113 15.3805 10.259 15.2222 9.23139Z" fill="#232121"/>
+        <path d="M25.6754 15.0574C27.0682 16.2448 28.182 18.651 27.9346 20.4916C26.9573 20.6831 25.024 22.5805 24.3512 23.3641C22.0072 26.094 21.0629 30.4943 20.9835 34H15.2932C15.2808 31.8166 15.7896 28.4325 16.4051 26.3354C18.0268 20.8091 20.836 17.8167 25.6754 15.0574Z" fill="#232121"/>
+        <path d="M7.95305 20.273C7.80045 18.8799 9.44557 15.6119 10.7931 15.1603C13.4743 16.6359 14.7269 17.7696 16.7313 20.0699C16.0038 21.2127 15.3915 22.425 14.9033 23.6888C14.5749 24.5366 14.1585 25.8555 13.7319 26.6033C12.9005 24.0349 10.566 21.5483 8.15573 20.2944C8.08755 20.2589 8.02323 20.2461 7.95305 20.273Z" fill="#232121"/>
+        <path d="M25.2549 14.4917C26.4363 13.138 27.2116 12.3161 28.0552 10.671C28.4454 9.90997 28.7097 8.36178 29.2253 8.0563C30.1256 8.09824 29.4858 10.5013 29.4219 11.1761C29.0741 14.8498 30.5063 18.5307 33.7791 20.448C34.313 20.7597 35.2103 20.9897 35.2963 21.6676C35.2332 21.7699 35.1725 21.8835 35.0246 21.8823C33.5402 21.8708 32.1463 21.1408 30.642 20.9692C29.8594 20.8799 28.3955 21.1225 27.9346 20.4916C28.182 18.651 27.0682 16.2448 25.6754 15.0574L25.2549 14.4917Z" fill="#B98833"/>
+        <path d="M0 20.6958C1.23954 20.4855 3.37485 19.0628 4.30605 18.2199C6.26663 16.4121 7.40355 13.8809 7.4531 11.2136C7.46393 10.4224 7.27317 9.50093 7.3079 8.79079C7.45666 8.54582 7.58041 8.45532 7.86254 8.50417C7.94 8.57291 8.10544 8.7268 8.14179 8.81611C8.91602 10.7177 9.6004 12.6467 10.9381 14.2462C11.2167 14.5793 11.0195 14.8683 10.7931 15.1603C9.44557 15.612 7.80045 18.88 7.95305 20.2731C7.85334 20.5463 7.92123 20.46 7.68197 20.6347C7.36713 20.705 6.55584 20.6047 6.21467 20.5743C4.16584 20.3919 2.44133 20.83 0.532358 21.4982C0.383853 21.5501 0.129533 21.3559 0 21.2554V20.6958Z" fill="#B98833"/>
+        <path d="M16.6831 0H18.3516C20.0913 0.771525 20.1759 3.17712 18.5565 4.01764C18.0267 4.29113 17.4091 4.33947 16.8433 4.15174C14.8547 3.50594 14.7987 0.916025 16.6831 0Z" fill="#232121"/>
+        <!-- Wordmark -->
+        <path d="M41.2044 7.58334C41.7554 7.52677 42.6642 7.56151 43.2436 7.56337L46.902 7.57042C48.7299 7.57235 50.5604 7.5428 52.3865 7.57057C52.8036 7.57688 53.1797 7.8318 53.2007 8.26853C53.2286 8.8469 53.338 9.50649 52.9484 9.99385C52.5344 10.1876 44.1992 10.1978 43.2692 10.1226C43.3394 12.2033 43.299 14.4431 43.305 16.5404C46.1293 16.6814 48.9715 16.5452 51.7978 16.6015C51.9589 16.6047 52.3232 16.6529 52.4268 16.7589C52.656 16.993 52.6282 17.5521 52.6388 17.8646C52.6503 17.9472 52.6568 18.0306 52.6584 18.1141C52.6656 18.5235 52.5612 19.0075 52.0588 19.0437C51.0382 19.1174 49.9915 19.0876 48.9662 19.0867C47.0666 19.0778 45.1671 19.0842 43.2677 19.1058C43.3575 21.5375 43.3095 24.0369 43.2598 26.4691C43.2403 27.4278 41.1011 27.2796 40.7253 26.9124C40.6342 26.5196 40.6004 26.1195 40.5876 25.7171C40.537 24.1136 40.4649 8.4758 40.6752 7.94628C40.7517 7.75341 41.0274 7.6624 41.2044 7.58334Z" fill="#B98833"/>
+        <path d="M56.7977 7.36521C57.3821 7.31282 58.2231 7.21406 58.7192 7.52641C59.1818 8.02602 59.066 10.352 59.0661 11.1L59.066 15.3907C59.0656 19.0151 59.1314 22.8757 59.0365 26.4847L58.6247 27.0656C58.1229 27.1522 57.0625 27.3249 56.6429 26.9325C56.5071 26.8054 56.4555 26.1234 56.4554 25.9066C56.4506 20.0247 56.4558 14.1415 56.454 8.25986C56.4538 7.81942 56.4788 7.65127 56.7977 7.36521Z" fill="#B98833"/>
+        <path d="M67.7915 12.3532C70.0327 12.2678 71.2535 12.2243 73.1737 13.788C74.3707 14.7629 75.1957 16.7744 75.2914 18.273C75.3181 18.6882 75.4339 20.3212 75.1349 20.5948C74.9813 20.7618 74.6838 20.8475 74.4546 20.857C71.3175 20.9868 68.136 20.8157 65 20.9273C65.0255 21.1779 65.0291 21.4428 65.0573 21.6924C65.378 24.5375 68.2861 25.5621 70.7426 24.6791C71.5081 24.404 71.9788 23.9457 72.5654 23.4388C72.855 23.0814 74.0964 23.2148 74.557 23.2397L75.0288 23.8261C74.7981 24.4214 74.6267 24.921 74.2172 25.4223C73.2725 26.5803 71.429 27.2249 69.9886 27.3708C68.0659 27.5655 66.3707 27.2983 64.8516 26.0473C63.4539 24.8965 62.57 23.0302 62.4316 21.2344C62.2429 18.7869 62.3824 16.4403 64.0155 14.4593C64.8908 13.3976 66.4379 12.4837 67.7915 12.3532ZM64.975 18.537C66.1829 18.6527 67.5669 18.6187 68.7939 18.6101C69.9102 18.6154 71.6835 18.6674 72.7427 18.5356C72.5801 16.0758 71.3556 14.9573 68.9463 14.7313C66.5457 14.9074 65.2482 16.117 64.975 18.537Z" fill="#B98833"/>
+        <path d="M77.8984 12.6309C78.3992 12.6138 79.6381 12.4842 79.9668 12.7994C81.4201 14.1914 82.6093 16.2149 83.9625 17.6914C84.9908 16.6686 87.3455 13.1788 88.1979 12.6283C88.8901 12.6034 90.1684 12.3814 90.5237 13.018C90.5972 13.7393 89.7804 14.5733 89.3501 15.1316C88.2499 16.5588 87.0554 17.9199 85.9552 19.3474C85.5902 19.8208 85.8313 20.0588 86.1466 20.4513C87.6089 22.2621 89.1223 24.0486 90.5104 25.9154C90.753 26.2409 90.8843 26.5767 90.6343 26.9308C90.4436 27.1018 90.158 27.1227 89.9028 27.165C89.3812 27.1844 88.9331 27.1603 88.4116 27.1336C87.3603 26.414 84.3157 21.9164 83.8475 21.8841C83.1005 22.5386 82.4305 23.5737 81.8177 24.3753C81.1159 25.278 80.3993 26.1687 79.6678 27.0471C79.1306 27.1524 78.4377 27.2691 77.8976 27.1783C77.6706 27.1402 77.4288 27.0636 77.2923 26.8649C76.5177 25.7373 81.8571 21.0381 82.0618 19.7836C82.0982 19.5592 81.9372 19.2884 81.8229 19.1073C81.4913 18.5812 81.0247 18.0986 80.6322 17.6144C79.7286 16.4975 78.805 15.3866 77.9303 14.2469C77.6558 13.8886 77.319 13.4407 77.382 12.9669C77.4785 12.775 77.6929 12.7177 77.8984 12.6309Z" fill="#B98833"/>
+        <path d="M94.1716 12.6328C94.7005 12.597 95.5967 12.5254 96.0344 12.7864C96.2169 12.9865 96.3594 13.5909 96.3586 13.8666C96.3549 18.0429 96.4773 22.3076 96.3549 26.4778L95.9432 27.0567C95.4305 27.1575 94.4839 27.2999 94.0187 26.9928C93.8125 26.8565 93.7695 26.1896 93.7672 25.929C93.7339 22.3241 93.8014 18.7187 93.7546 15.1139C93.7457 14.4293 93.5603 13.0312 94.1716 12.6328Z" fill="#B98833"/>
+        <path d="M93.8006 7.37085C93.8311 7.36769 93.8607 7.365 93.8911 7.36279C94.5574 7.31672 95.869 7.17006 96.3586 7.59594C96.625 8.11336 96.5211 9.25615 96.467 9.84878C96.4462 10.0813 96.2934 10.2578 96.1302 10.4172C95.5678 10.504 94.0759 10.5801 93.6604 10.2208C93.3117 9.67157 93.2924 7.83001 93.8006 7.37085Z" fill="#B98833"/>
+        <path d="M107.288 7.30511C107.989 7.24915 108.694 7.26631 109.391 7.35633C112.068 7.71836 115.573 9.59475 115.791 12.7937C115.846 13.5909 113.823 13.3293 113.311 13.2418C112.748 12.6351 112.475 11.8604 111.819 11.2515C109.788 9.36521 105.947 9.43855 104.037 11.4693C102.12 13.6512 102.844 16.6775 102.717 19.3144C102.464 24.5815 108.484 26.5717 112.056 23.3191C113.143 22.3289 113.369 20.3784 113.305 18.9047C112.265 18.8478 110.909 18.8854 109.846 18.8849C109.519 18.874 109.029 18.9421 108.76 18.735C108.567 18.5859 108.49 18.3105 108.46 18.0796C108.401 17.6148 108.416 16.9284 108.715 16.5498C108.85 16.3802 109.02 16.3743 109.222 16.3529C109.883 16.2829 115.437 16.2178 115.735 16.4664C115.973 16.6654 116.058 16.9859 116.081 17.2843C116.122 17.8272 116.088 18.3999 116.082 18.9453C116.059 21.1072 115.824 23.1867 114.361 24.8927C112.976 26.5073 110.917 27.2825 108.836 27.4417C106.576 27.6146 104.184 27.1415 102.431 25.6303C100.735 24.1686 100.126 22.0491 99.9694 19.8854C99.8996 18.9243 99.9197 17.9475 99.9204 16.984C99.9219 14.3825 99.9924 11.7981 101.789 9.72674C103.211 8.08679 105.179 7.45438 107.288 7.30511Z" fill="#232121"/>
+        <path d="M119.788 12.5557C120.239 12.5456 121.496 12.464 121.756 12.8137C122.163 13.5193 121.893 14.7122 121.963 15.4947C122.202 18.1799 121.166 22.0676 123.228 24.1404C123.876 24.7911 125.005 24.9881 125.861 24.9332C129.595 24.6936 129.524 21.7519 129.52 18.8633C129.518 17.4259 129.508 15.9884 129.491 14.551C129.479 13.24 129.317 11.9026 131.864 12.7619C132.286 12.9043 132.136 16.1294 132.131 16.8887L132.137 22.8437C132.137 24.082 132.22 25.9587 131.969 27.0917C131.045 27.1755 130.567 27.1892 129.651 27.0707C129.531 26.6001 129.485 26.2 129.422 25.7189C129.257 25.89 129.087 26.0565 128.912 26.2182C126.808 28.1513 122.763 27.8078 120.89 25.7084C118.997 23.5864 119.418 20.4871 119.384 17.8597C119.365 16.3317 119.324 14.7638 119.426 13.2435C119.448 12.9109 119.548 12.7755 119.788 12.5557Z" fill="#232121"/>
+        <path d="M136.67 7.29228C137.288 7.26557 138.262 7.12768 138.717 7.59908C138.903 8.5634 138.867 26.4972 138.76 26.7396C138.667 26.9507 138.558 27.0454 138.343 27.1247C137.829 27.1755 136.68 27.2823 136.304 26.8876C136.063 25.9699 136.13 8.27091 136.252 7.77613C136.315 7.52069 136.454 7.42212 136.67 7.29228Z" fill="#232121"/>
+        <path d="M144.498 12.5494C144.461 7.71874 145.441 6.19664 150.534 6.42359C151.294 6.45744 151.459 6.63936 151.938 7.16693V8.24893C151.583 8.59034 151.463 8.70162 151.044 8.95633C150.477 8.99137 149.859 8.95507 149.283 8.98313C147.066 9.09084 146.994 10.7127 147.108 12.4984C148.1 12.6156 149.095 12.528 150.091 12.5107C150.469 12.5093 150.837 12.5693 151.118 12.8395C151.528 13.2351 151.46 13.8003 151.464 14.3334C151.345 14.584 151.31 14.6643 151.13 14.8731C150.695 15.1058 147.842 15.0224 147.049 15.074L147.051 22.7785C147.052 23.9462 147.135 25.1611 147.063 26.324C147.051 26.5185 147.039 26.8225 146.892 26.9672C146.652 27.2033 145.994 27.1805 145.669 27.1769C145.344 27.1733 144.871 27.1681 144.634 26.9184C144.365 26.6357 144.495 16.1582 144.506 15.0745C143.859 15.0042 141.866 15.1775 141.677 14.8089C140.179 11.8843 143.632 12.5522 144.498 12.5494Z" fill="#232121"/>
+        <path d="M2.91348 12.1291C4.11431 11.9597 5.23252 12.7753 5.43887 13.9711C5.64523 15.1669 4.86511 16.3105 3.67704 16.5539C2.87514 16.7181 2.04746 16.4326 1.51709 15.8087C0.986724 15.1849 0.837754 14.3217 1.12833 13.5559C1.41891 12.7902 2.10297 12.2435 2.91348 12.1291Z" fill="#232121"/>
+        <path d="M32.3632 12.5642C33.5299 12.1641 34.7993 12.7888 35.1948 13.9577C35.5903 15.1266 34.9613 16.3946 33.7916 16.786C32.6281 17.1753 31.3692 16.5498 30.9757 15.3871C30.5823 14.2244 31.2027 12.9622 32.3632 12.5642Z" fill="#232121"/>
+      </svg>
+    </a>
+  </div>
+</nav>
+
+<main id="app"></main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h4>إدارة الموارد البشرية والرواتب والامتثال — نتولى ذلك كله لتنمو أعمالك.</h4>
+        <p>فليكسي جلف شركة استشارية مقرّها الرياض، تساعد الشركات المحلية والدولية على العمل باطمئنان داخل المملكة العربية السعودية.</p>
+      </div>
+      <div class="footer-col">
+        <h5>الخدمات</h5>
+        <ul>
+          <li><a href="#/services">الموارد البشرية</a></li>
+          <li><a href="#/services">المحاسبة والضرائب</a></li>
+          <li><a href="#/services">التأشيرات والإقامة</a></li>
+          <li><a href="#/services">GOSI والرواتب</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>الشركة</h5>
+        <ul>
+          <li><a href="#/corporate">بيانات الشركة</a></li>
+          <li><a href="#/clients">العملاء والقطاعات</a></li>
+          <li><a href="#/contact">تواصل معنا</a></li>
+          <li><a href="#/contact">الوظائف</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>المقر الرئيسي · الرياض</h5>
+        <ul>
+          <li>طريق الملك فهد، حي العليا<br/>الرياض 12211، المملكة العربية السعودية</li>
+          <li><a href="mailto:hello@flexigulf.sa">hello@flexigulf.sa</a></li>
+          <li><a href="tel:+966112000000" style="direction:ltr;display:inline-block;">+966 11 200 0000</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span style="display:flex;align-items:center;gap:20px;">
+        <span>LICENSED BY MHRSD · ZATCA COMPLIANT</span>
+        <span class="lang-switch" style="border-color:rgba(245,240,232,.2);">
+          <a href="FlexiGulf.html" style="color:rgba(245,240,232,.6);">EN</a>
+          <a href="FlexiGulf-ar.html" class="active" style="background:var(--gold);color:var(--ink);">عر</a>
+        </span>
+      </span>
+      <span>© 2026 FLEXIGULF — COMMERCIAL REG. 1010-XXXXXX</span>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"><span class="chk">✓</span><span id="toastMsg">تم الإرسال</span></div>
+
+<script>
+const app=document.getElementById('app');
+const navLinks=document.querySelectorAll('.nav-link');
+const nav=document.getElementById('nav');
+const AL='<svg width="12" height="12" viewBox="0 0 12 12"><path d="M9 9L3 3M3 3H8M3 3V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+const iPeople='<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="10" cy="10" r="4" stroke="currentColor" stroke-width="1.3"/><circle cx="19" cy="11" r="3" stroke="currentColor" stroke-width="1.3"/><path d="M3 22c0-3 3-5 7-5s7 2 7 5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><path d="M17 19c4 0 7 1 8 3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>';
+const iLedger='<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="5" y="4" width="18" height="20" stroke="currentColor" stroke-width="1.3"/><path d="M9 9h10M9 13h10M9 17h6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>';
+const iPass='<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="5" y="3" width="18" height="22" stroke="currentColor" stroke-width="1.3"/><circle cx="14" cy="11" r="3.5" stroke="currentColor" stroke-width="1.3"/><path d="M10 19h8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>';
+
+function route(){
+  const h=(location.hash||'#/').replace('#','');
+  let v='home';
+  if(h.startsWith('/corporate'))v='corporate';
+  else if(h.startsWith('/services'))v='services';
+  else if(h.startsWith('/clients'))v='clients';
+  else if(h.startsWith('/contact'))v='contact';
+  navLinks.forEach(a=>a.classList.toggle('active',a.dataset.route===v));
+  app.innerHTML='<div class="page-wrap">'+views[v]()+'</div>';
+  window.scrollTo({top:0,behavior:'instant'});
+  setTimeout(bindDynamic,20);
+}
+window.addEventListener('hashchange',route);
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>8));
+function toast(msg){const t=document.getElementById('toast');document.getElementById('toastMsg').textContent=msg;t.classList.add('show');clearTimeout(window._tt);window._tt=setTimeout(()=>t.classList.remove('show'),3000);}
+
+const views={};
+
+views.home=()=>`
+<div class="page">
+  <section class="hero">
+    <div class="hero-meta">
+      <span>رقم 001 — مقدمة</span>
+      <span><span style="display:inline-block;width:6px;height:6px;background:var(--gold);border-radius:50%;margin-left:8px;vertical-align:middle;"></span>تأسست 2018 · الرياض · جدة · الدمام</span>
+    </div>
+    <div class="hero-grid">
+      <div>
+        <h1>رأس المال البشري،<br/><span class="accent">بإدارة احترافية</span><br/>وجذور محلية راسخة.</h1>
+      </div>
+      <div class="hero-right">
+        <p class="hero-lede">فليكسي جلف هي شريككم في الموارد البشرية والمالية للشركات العاملة في المملكة. نتولى GOSI وقيوة ومقيم وهيئة الزكاة حتى يتفرغ فريقك للعمل الجوهري.</p>
+        <div class="hero-ctas">
+          <a href="#/services" class="btn btn-primary">استعرض الخدمات ${AL}</a>
+          <a href="#/contact" class="btn btn-ghost">احجز استشارة</a>
+        </div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1.3fr;gap:40px;margin-top:72px;">
+      <div class="vis" style="aspect-ratio:3/4;background-image:url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800&q=80&fit=crop');">
+        <div class="vis-tag">الرياض · 2026</div>
+        <div class="vis-caption">"امتثال لا تحتاج إلى التفكير فيه."</div>
+      </div>
+      <div style="display:flex;flex-direction:column;justify-content:flex-end;gap:24px;">
+        <div class="vis" style="aspect-ratio:5/3;background-image:url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80&fit=crop');">
+          <div class="vis-tag" style="background:var(--gold);color:var(--ink);">الفريق</div>
+        </div>
+        <div style="padding-top:24px;border-top:1px solid var(--hairline);text-align:right;">
+          <span class="eyebrow"><span class="dot"></span>ما نقدمه في جملة واحدة</span>
+          <p class="naskh" style="font-size:24px;line-height:1.55;margin-top:16px;max-width:560px;font-weight:600;">نُدير <span style="color:var(--gold-deep)">العمود الفقري الإداري</span> لعملياتك في المملكة — رواتب وGOSI وتأشيرات وحسابات وضرائب — بعقد شهري واحد.</p>
+        </div>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">320<span class="unit">+</span></div><div class="stat-label">عميل نشط</div></div>
+      <div class="stat"><div class="stat-num">14<span class="unit">k</span></div><div class="stat-label">قسيمة راتب شهرياً</div></div>
+      <div class="stat"><div class="stat-num">42</div><div class="stat-label">جنسية تم تأهيلها في 2025</div></div>
+      <div class="stat"><div class="stat-num">99.8<span class="unit">%</span></div><div class="stat-label">نسبة الامتثال مع GOSI وزاتكا</div></div>
+    </div>
+  </section>
+</div>
+<div class="marquee"><div class="marquee-track">
+  <span>الرواتب <span class="sep">✦</span> امتثال GOSI <span class="sep">✦</span> تجديد الإقامة <span class="sep">✦</span> السعودة <span class="sep">✦</span> الفاتورة الإلكترونية <span class="sep">✦</span> تأهيل الموظفين <span class="sep">✦</span> تأشيرات العمل <span class="sep">✦</span> المحاسبة <span class="sep">✦</span> مكافأة نهاية الخدمة <span class="sep">✦</span></span>
+  <span>الرواتب <span class="sep">✦</span> امتثال GOSI <span class="sep">✦</span> تجديد الإقامة <span class="sep">✦</span> السعودة <span class="sep">✦</span> الفاتورة الإلكترونية <span class="sep">✦</span> تأهيل الموظفين <span class="sep">✦</span> تأشيرات العمل <span class="sep">✦</span> المحاسبة <span class="sep">✦</span> مكافأة نهاية الخدمة <span class="sep">✦</span></span>
+</div></div>
+<div class="page">
+  <section class="section">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>الخدمات · رقم 02</span>
+        <h2 style="margin-top:20px;">ثلاثة تخصصات،<br/><span class="accent">شريك واحد.</span></h2>
+      </div>
+      <p>كل مهمة في فليكسي جلف يقودها شريك أول ويُنفّذها فريق مخصص في الرياض. أعمق من مزوّد PEO وأخف من مكاتب الأربعة الكبار — مصمَّم لخدمة السوق السعودية.</p>
+    </div>
+    <div class="services-grid">
+      ${sc('01','الموارد البشرية','من التعيين وكشف الرواتب إلى GOSI وقيوة وتخطيط السعودة — فريق واحد يدير عمليات الموارد البشرية من الألف إلى الياء.',iPeople)}
+      ${sc('02','المحاسبة والضرائب','مسك الدفاتر الكاملة وإعداد تقارير IFRS وتقديم إقرارات ضريبة القيمة المضافة والزكاة وفاتورة زاتكا في الوقت المحدد.',iLedger)}
+      ${sc('03','التأشيرات والإقامة','تأشيرات الكتلة وتصاريح العمل وإقامة الأسرة ودعم مقيم — نتولى حلقة وزارة الخارجية ووزارة العمل والجوازات.',iPass)}
+    </div>
+  </section>
+</div>
+<section class="approach">
+  <div class="approach-inner">
+    <div class="section-head" style="border-color:rgba(245,240,232,.15);">
+      <div>
+        <span class="eyebrow" style="color:rgba(245,240,232,.5);"><span class="dot"></span>المنهجية · رقم 03</span>
+        <h2 class="naskh" style="margin-top:20px;color:var(--cream);font-size:clamp(34px,4.5vw,58px);line-height:1.3;">إيقاع من أربع خطوات،<br/>مبني على <span style="color:var(--gold);">النطاق السعودي.</span></h2>
+      </div>
+      <p style="color:rgba(245,240,232,.7);">يستغرق الإعداد مع فليكسي جلف أقل من ثلاثة أسابيع. بعد ذلك، إيقاع شهري منتظم يضمن إغلاق دفاترك وتقديم GOSI ودفع رواتب فريقك.</p>
+    </div>
+    <div class="steps">
+      ${st('01','الاستكشاف','جلسة عمل مع مديرك المالي لرسم خريطة الالتزامات وخطة القوى العاملة وثغرات الامتثال.')}
+      ${st('02','الانتقال','ننقل الرواتب والدفاتر والعقود إلى أنظمتنا دون توقف. عادةً 14 إلى 21 يوماً.')}
+      ${st('03','التشغيل','رواتب شهرية وإقرارات وتجديدات تأشيرات وتقارير مالية، يقدمها شريكك المسمى.')}
+      ${st('04','الاستشارة','مراجعات ربع سنوية تشمل السعودة وتوقعات التكاليف والتغييرات التنظيمية.')}
+    </div>
+  </div>
+</section>
+<div class="page">
+  <section class="two-up">
+    <div>
+      <span class="eyebrow"><span class="dot"></span>لماذا فليكسي جلف</span>
+      <h3>جذور محلية، <span class="accent">انضباط عالمي.</span></h3>
+      <p>شركاؤنا المؤسسون جاءوا من تدقيق الأربعة الكبار وعمليات رواتب الشركات متعددة الجنسيات وقانون الهجرة السعودي.</p>
+      <ul class="check-list">
+        <li>شريك أول في كل مهمة — لا فريق مبتدئين حصراً.</li>
+        <li>تقارير ومراسلات ثنائية اللغة (عربي / إنجليزي).</li>
+        <li>تكامل مباشر مع بوابات GOSI وقيوة ومقيم وزاتكا.</li>
+        <li>اشتراك شهري ثابت — لا فواجئ في الفوترة.</li>
+        <li>وقت استجابة مضمون: 4 ساعات عمل كحد أقصى.</li>
+      </ul>
+      <div style="margin-top:32px;"><a href="#/corporate" class="btn btn-ghost">اقرأ بياناتنا المؤسسية ${AL}</a></div>
+    </div>
+    <div class="vis" style="aspect-ratio:1/1;background-image:url('https://images.unsplash.com/photo-1521791136064-7986c2920216?w=800&q=80&fit=crop');"></div>
+  </section>
+</div>
+<section class="cta-band">
+  <div>
+    <span class="eyebrow"><span class="dot"></span>الخطوة التالية</span>
+    <h3 style="margin-top:16px;">أخبرنا عن <span class="accent">حضوركم في المملكة.</span></h3>
+    <p>سواء كنتم تدخلون المملكة بـ 3 موظفين أو تُعيدون هيكلة عملية بـ 300 شخص، سنُعيد إليكم نطاقاً واضحاً وسعراً ثابتاً خلال 48 ساعة.</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+      <a href="#/contact" class="btn btn-primary">ابدأ محادثة ${AL}</a>
+      <a href="#/services" class="btn btn-ghost">عرض نطاق الخدمات</a>
+    </div>
+  </div>
+  <div>
+    <div style="border-right:1px solid var(--hairline);padding-right:40px;text-align:right;">
+      <span class="eyebrow">خط مباشر · مكتب الشريك</span>
+      <div style="font-family:'Fraunces',serif;font-size:30px;font-weight:300;line-height:1.2;direction:ltr;text-align:right;margin-top:12px;">+966 11 200 0000</div>
+      <div class="naskh" style="font-size:20px;color:var(--gold-deep);margin-top:8px;">hello@flexigulf.sa</div>
+      <div style="font-size:12px;color:var(--ink-mute);margin-top:12px;">الأحد – الخميس · 08:30 – 17:30 بتوقيت الرياض</div>
+    </div>
+  </div>
+</section>`;
+
+function sc(n,t,d,icon){return`<a href="#/services" class="service-card"><div style="display:flex;justify-content:space-between;align-items:flex-start;"><span class="service-num">№${n}</span><div class="service-icon">${icon}</div></div><div class="service-title">${t}</div><div class="service-desc">${d}</div><div class="service-cta">اعرف المزيد ${AL}</div></a>`;}
+function st(n,t,d){return`<div class="step"><div class="step-num">${n}</div><div class="step-title">${t}</div><div class="step-desc">${d}</div></div>`;}
+
+views.corporate=()=>`
+<div class="page">
+  <section class="page-hero">
+    <span class="page-crumb">الشركة · البيانات المؤسسية رقم 001</span>
+    <h1>شركة بُنيت لتتولى <span class="accent">الملف الطويل.</span></h1>
+    <p style="max-width:640px;margin-top:24px;color:var(--ink-2);font-size:17px;line-height:1.75;">تأسست فليكسي جلف لجعل العمل في المملكة العربية السعودية أمراً اعتيادياً — لرفع الأعباء الإدارية عن القيادات حتى تتفرغ للسوق والمنتج والناس.</p>
+  </section>
+  <section class="statements">
+    <aside class="statements-sidebar" id="stmtSide">
+      <button class="statement-tab active" data-s="mission"><span class="num">01</span><span>الرسالة</span></button>
+      <button class="statement-tab" data-s="vision"><span class="num">02</span><span>الرؤية</span></button>
+      <button class="statement-tab" data-s="values"><span class="num">03</span><span>القيم</span></button>
+      <button class="statement-tab" data-s="commitment"><span class="num">04</span><span>الالتزام</span></button>
+    </aside>
+    <div>
+      <article class="statement-card" id="stmt-mission">
+        <span class="eyebrow"><span class="dot"></span>الرسالة</span>
+        <h3>نجعل المكتب الخلفي <span class="accent">يختفي.</span></h3>
+        <p class="lede">رسالتنا هي إدارة وظائف الموارد البشرية والمالية والتنقل للشركات الطموحة في المملكة حتى لا تضطر إلى التفكير في الامتثال أبداً.</p>
+        <p>هذا يعني رواتب تُصرف في الـ 27 من كل شهر دون استثناء. وإقامات مجدَّدة قبل أن يتذكر أحد موعد انتهائها. وحسابات إدارية شهرية في صندوق بريدك في اليوم الخامس من أيام العمل.</p>
+      </article>
+      <article class="statement-card" id="stmt-vision">
+        <span class="eyebrow"><span class="dot"></span>الرؤية</span>
+        <h3>الشريك الافتراضي <span class="accent">لمشغّلي رؤية 2030.</span></h3>
+        <p class="lede">بحلول عام 2030، ستكون فليكسي جلف الاتصال الأول لأي شركة دولية تُنشئ كياناً في المملكة، والبنية التحتية الصامتة وراء مئات الشركات السعودية الناشئة.</p>
+        <p>نؤمن بأن العقد القادم من التحول الاقتصادي السعودي سيحمله السوق المتوسط — شركات من 50 إلى 500 موظف، تنمو بسرعة، وغالباً ما تكون جديدة على التضاريس التنظيمية.</p>
+      </article>
+      <article class="statement-card" id="stmt-values">
+        <span class="eyebrow"><span class="dot"></span>القيم</span>
+        <h3>أربعة مبادئ. <span class="accent">لا استثناءات.</span></h3>
+        <div class="values-grid">
+          <div class="value"><div class="value-num">№01</div><div class="value-title">السرية</div><div class="value-desc">بيانات الرواتب وهياكل الملكية وملفات الهجرة تُعالَج بسرية المصرف الخاص.</div></div>
+          <div class="value"><div class="value-num">№02</div><div class="value-title">الدقة</div><div class="value-desc">الأرقام إما صحيحة أو خاطئة. نُراجع مرتين ونُرسل مرة واحدة.</div></div>
+          <div class="value"><div class="value-num">№03</div><div class="value-title">القرب</div><div class="value-desc">شريك مسمى متاح على واتساب ويعرف أعمالك أكثر من مجرد ملاحظات.</div></div>
+          <div class="value"><div class="value-num">№04</div><div class="value-title">الصبر</div><div class="value-desc">نحتفظ بعملائنا لسنوات لا لمهام. الاحتفاظ بالعميل هو مؤشر أدائنا الحقيقي.</div></div>
+          <div class="value"><div class="value-num">№05</div><div class="value-title">اللغة البسيطة</div><div class="value-desc">اللوائح معقدة. مشورتنا لا ينبغي أن تكون كذلك. نترجم دائماً.</div></div>
+          <div class="value"><div class="value-num">№06</div><div class="value-title">المكان</div><div class="value-desc">نحن مقيمون في السعودية ومرخَّصون وذوو قيادة سعودية. جذورنا تحدد مشورتنا.</div></div>
+        </div>
+      </article>
+      <article class="statement-card" id="stmt-commitment">
+        <span class="eyebrow"><span class="dot"></span>الالتزام</span>
+        <h3>ضمانات الخدمة، <span class="accent">مكتوبةً.</span></h3>
+        <p class="lede">كل مهمة في فليكسي جلف مشمولة بميثاق خدمة يتضمن التزامات ملموسة وقابلة للقياس.</p>
+        <ul class="check-list" style="margin-top:24px;">
+          <li>الرواتب تُعالَج وتُموَّل بحلول الـ 27 من كل شهر.</li>
+          <li>إقرارات GOSI وقيوة ومقيم ضمن النوافذ القانونية — أو نُقيّد الغرامة.</li>
+          <li>تجديد الإقامات يبدأ قبل 60 يوماً من الانتهاء تلقائياً.</li>
+          <li>حسابات إدارية شهرية بحلول اليوم الخامس من أيام العمل.</li>
+          <li>وقت استجابة مضمون: 4 ساعات عمل.</li>
+          <li>مراجعة استراتيجية سنوية مع الشريك المؤسس، حضورياً.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+  <section style="padding:100px 0;border-top:1px solid var(--hairline);">
+    <div class="section-head" style="border:none;padding:0;margin-bottom:24px;">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>القيادة · رقم 05</span>
+        <h2 style="margin-top:20px;">الأشخاص وراء <span class="accent">الممارسة.</span></h2>
+      </div>
+      <p>يعمل شركاؤنا كموقِّعين على كل حساب عميل. هم من تتصل بهم.</p>
+    </div>
+    <div class="leaders">
+      <div><div class="leader-vis" style="background-image:url('https://images.unsplash.com/photo-1566492031773-4f4e44671857?w=600&q=80&fit=crop&crop=faces');"></div><div class="leader-name">فيصل الراشد</div><div class="leader-role">الشريك الإداري · الموارد البشرية</div></div>
+      <div><div class="leader-vis" style="background-image:url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80&fit=crop&crop=faces');"></div><div class="leader-name">نورة بنت خالد</div><div class="leader-role">شريكة · الضرائب والاستشارات</div></div>
+      <div><div class="leader-vis" style="background-image:url('https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&q=80&fit=crop&crop=faces');"></div><div class="leader-name">عمر حداد</div><div class="leader-role">شريك · الهجرة</div></div>
+    </div>
+  </section>
+</div>`;
+
+views.services=()=>`
+<div class="page">
+  <section class="page-hero">
+    <span class="page-crumb">الخدمات والحلول · رقم 002</span>
+    <h1>كل شيء بين <span class="accent">الترحيب</span> ومكافأة <span class="accent">نهاية الخدمة.</span></h1>
+    <p style="max-width:700px;margin-top:24px;color:var(--ink-2);font-size:17px;line-height:1.75;">ثلاثة مجالات ممارسة متكاملة. تعاقد مع واحد — أو دعنا ندير العمود الفقري الإداري لكيانك السعودي بالكامل باشتراك شهري واحد.</p>
+  </section>
+  <section class="services-page">
+    ${sd('01','الموارد البشرية','عمليات موارد بشرية شاملة لفرق تعمل في المملكة من 5 إلى 500 موظف.',[
+      ['01','معالجة الرواتب','تشغيل رواتب شهرية وفق WPS وإصدار قسائم راتب عربية وإنجليزية.'],
+      ['02','إدارة GOSI','التسجيل والاشتراكات الشهرية والتسويات وإلغاء التسجيل.'],
+      ['03','السعودة (نطاقات)','متابعة الحصص وخطط التوظيف وتقديم قيوة للوصول إلى الفئة المستهدفة.'],
+      ['04','التعيين والإنهاء','عقود عمل وفحوصات خلفية وتهيئة ومكافآت نهاية الخدمة.'],
+      ['05','الإجازات والحضور','إدارة رقمية للإجازات وتتبع الوقت وتطبيق السياسات.'],
+      ['06','سياسة الموارد البشرية','أدلة إجراءات متوافقة مع نظام العمل وأطر تأديبية.']
+    ])}
+    ${sd('02','المحاسبة والضرائب','مسك دفاتر شهري وتقارير نظامية وامتثال كامل لزاتكا والزكاة.',[
+      ['01','مسك الدفاتر','قيود يومية ومطابقة بنكية وتصميم دليل حسابات وفق IFRS.'],
+      ['02','حسابات إدارية شهرية','أرباح وخسائر وميزانية عمومية وتدفق نقدي بحلول اليوم الخامس.'],
+      ['03','إقرارات ضريبة القيمة المضافة','إقرارات ربع سنوية ومطابقة المدخلات والمخرجات ومراسلات زاتكا.'],
+      ['04','الزكاة والضريبة','الإقرارات السنوية للزكاة وضريبة الدخل للشركات الأجنبية.'],
+      ['05','الفاتورة الإلكترونية زاتكا','تكامل المرحلة الثانية والامتثال المستمر للفواتير.'],
+      ['06','نهاية العام ودعم المراجعة','إعداد القوائم المالية النظامية والتنسيق مع المراجعين.']
+    ])}
+    ${sd('03','التأشيرات والإقامة','كل تصريح وكل تجديد وكل معال — تُدار من البداية إلى النهاية.',[
+      ['01','تأشيرات الكتلة','تأمين حصص تأشيرات الدخول من وزارة العمل للموظفين الجدد.'],
+      ['02','تصاريح العمل والإقامة','الإصدار الأولي والتجديد والنقل والإلغاء.'],
+      ['03','رعاية الأسرة','تأشيرات المعالين وإقامة الأسرة وتسجيلات مقيم.'],
+      ['04','الخروج والعودة والخروج النهائي','تصاريح السفر الاعتيادية وإجراءات الخروج عند انتهاء التوظيف.'],
+      ['05','تغيير المهنة','تحديث مهن الإقامة لتعكس الأدوار الفعلية.'],
+      ['06','الاستشارة في التنقل','مشورة استراتيجية حول هياكل الكفالة وتأشيرات المستثمرين.']
+    ])}
+  </section>
+  <section class="cta-band" style="margin-top:80px;">
+    <div>
+      <span class="eyebrow"><span class="dot"></span>التسعير</span>
+      <h3 style="margin-top:16px;">ادمج الثلاثة، <span class="accent">وادفع أقل.</span></h3>
+      <p>العملاء الذين يتعاقدون على مجالات الممارسة الثلاثة يدفعون اشتراكاً يقل عادةً بنسبة 25% عن مجموع الأجزاء.</p>
+      <a href="#/contact" class="btn btn-primary">طلب عرض سعر متكامل ${AL}</a>
+    </div>
+    <div style="border-right:1px solid var(--hairline);padding-right:40px;text-align:right;">
+      <span class="eyebrow">عينة اشتراك · 50 موظف</span>
+      <div style="font-family:'Fraunces',serif;font-size:44px;font-weight:300;margin-top:16px;direction:ltr;text-align:right;">18,500 SAR<span style="font-size:14px;color:var(--ink-mute);font-family:'Cairo',sans-serif;">/شهر</span></div>
+      <div style="font-size:13px;color:var(--ink-mute);margin-top:8px;">شامل كل شيء، فاتورة شهرية، شريك واحد.</div>
+    </div>
+  </section>
+</div>`;
+
+function sd(n,t,d,feats){return`<div class="service-detail">
+  <div class="sdl">
+    <span class="eyebrow"><span class="dot"></span>الممارسة · رقم ${n}</span>
+    <h3>${t}</h3>
+    <p>${d}</p>
+    <a href="#/contact" class="btn btn-ghost">طلب النطاق ${AL}</a>
+  </div>
+  <div class="service-features">
+    ${feats.map(f=>`<div class="feat"><div><div class="feat-title">${f[1]}</div><div class="feat-desc">${f[2]}</div></div><div class="feat-num">${f[0]}</div></div>`).join('')}
+  </div>
+</div>`;}
+
+views.clients=()=>`
+<div class="page">
+  <section class="page-hero">
+    <span class="page-crumb">العملاء · رقم 003</span>
+    <h1>مشغّلون نفخر <span class="accent">بخدمتهم.</span></h1>
+    <p style="max-width:680px;margin-top:24px;color:var(--ink-2);font-size:17px;line-height:1.75;">محفظة تضم أكثر من 320 مهمة نشطة — من الشركات الناشئة المدعومة إلى الشركات متعددة الجنسيات التي تُنشئ كيانها الأول في المملكة.</p>
+  </section>
+  <section style="padding:60px 0 20px;"><span class="eyebrow"><span class="dot"></span>عملاء مختارون · بإذن منهم</span></section>
+  <div class="clients-grid">
+    ${cl('مدارج كابيتال','استثمار','محتفَظ به منذ 2020 · رواتب وضرائب')}
+    ${cl('زينث هيلث','رعاية صحية','إدارة خلفية كاملة، 180 موظفاً')}
+    ${cl('هيليو للطاقة','طاقة متجددة','إعداد الكيان والتنقل')}
+    ${cl('أطلس للخدمات اللوجستية','النقل','سعودة لنطاق البلاتيني')}
+    ${cl('قصر للضيافة','ضيافة','رواتب متعددة المواقع، 6 عقارات')}
+    ${cl('نورث ويند تك','تقنية','مقر هجين بالرياض، 35 مهندساً')}
+    ${cl('أمبر للتجزئة','تجزئة','إدارة القوى العاملة الموسمية')}
+    ${cl('سيلفر ميديا','إعلام','موارد بشرية ثنائية اللغة + تأشيرات')}
+    ${cl('ليفانت للأغذية','غذاء ومشروبات','تطبيق زاتكا المرحلة الثانية')}
+    ${cl('بيرل للعقارات','عقارات','وظيفة مالية شاملة')}
+    ${cl('فيرتكس ليجال','خدمات مهنية','مسؤول امتثال بالاستعانة')}
+    ${cl('تقوى للتعليم','تعليم','إقامة لـ 28 معلماً وافداً')}
+  </div>
+  <section style="padding:100px 0;">
+    <div class="section-head" style="border:none;padding:0;margin-bottom:24px;">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>القطاعات · العمق</span>
+        <h2 style="margin-top:20px;">حيث نتعمق <span class="accent">حقاً.</span></h2>
+      </div>
+      <p>المعرفة بالقطاع مهمة — أشكال العمل وفئات الكفالة ومعالجات ضريبة القيمة المضافة تختلف.</p>
+    </div>
+    <div class="sector-list">
+      ${sr('01','التقنية والبرمجيات','58 عميل')}
+      ${sr('02','الرعاية الصحية وعلوم الحياة','34 عميل')}
+      ${sr('03','الطاقة والطاقة المتجددة','22 عميل')}
+      ${sr('04','الخدمات المالية','41 عميل')}
+      ${sr('05','اللوجستيات والنقل','28 عميل')}
+      ${sr('06','الضيافة والمطاعم','46 عميل')}
+      ${sr('07','التجزئة وسلع المستهلكين','39 عميل')}
+      ${sr('08','الخدمات المهنية','52 عميل')}
+    </div>
+  </section>
+</div>
+<section class="testimonial">
+  <div class="testimonial-inner">
+    <span class="eyebrow"><span class="dot"></span>بكلماتهم</span>
+    <div id="testiQuote" style="margin-top:32px;">
+      <div class="testi-quote"><span class="mark">«</span>انتقلنا من مزوّد كبير إلى فليكسي جلف متوقّعين تراجعاً في الصرامة. بعد عامين، الحسابات تُغلق أسرع، والرواتب أهدأ، ولديّ شريك يرد على الهاتف يوم الجمعة.<span class="mark">»</span></div>
+      <div class="testi-meta"><span class="name">سارة م.</span><span>·</span><span>CFO، مدارج كابيتال</span></div>
+    </div>
+    <div class="testi-nav" id="testiNav">
+      <button class="testi-dot active" data-i="0"></button>
+      <button class="testi-dot" data-i="1"></button>
+      <button class="testi-dot" data-i="2"></button>
+    </div>
+  </div>
+</section>
+<div class="page">
+  <section class="cta-band" style="margin-top:0;">
+    <div>
+      <span class="eyebrow"><span class="dot"></span>كن عميلاً</span>
+      <h3 style="margin-top:16px;">انضم إلى <span class="accent">محفظة حذرة.</span></h3>
+      <p>نقبل عدداً محدوداً من المهام الجديدة كل ربع سنة. إذا كنت تفكر في التغيير، نرحب بمحادثة.</p>
+      <a href="#/contact" class="btn btn-primary">عرّف بشركتك ${AL}</a>
+    </div>
+    <div style="border-right:1px solid var(--hairline);padding-right:40px;text-align:right;">
+      <span class="eyebrow">استيعاب الربع الحالي</span>
+      <div style="font-family:'Fraunces',serif;font-size:56px;font-weight:300;margin-top:12px;direction:ltr;text-align:right;">6 <span style="color:var(--gold-deep);font-style:italic;">of 12</span></div>
+      <div style="font-size:13px;color:var(--ink-mute);margin-top:4px;">مقاعد مهام جديدة متبقية — الربع الثاني 2026.</div>
+    </div>
+  </section>
+</div>`;
+
+function cl(n,s,note){return`<div class="client-cell"><span class="client-sector">${s}</span><span class="client-name">${n}</span><span class="client-note">${note}</span></div>`;}
+function sr(n,name,count){return`<div class="sector-row"><span class="sector-num">${n}</span><span class="sector-name">${name}</span><span class="sector-count">${count}</span></div>`;}
+
+views.contact=()=>`
+<div class="page">
+  <section class="page-hero">
+    <span class="page-crumb">تواصل معنا · رقم 004</span>
+    <h1>لنجري <span class="accent">محادثة حقيقية.</span></h1>
+    <p style="max-width:640px;margin-top:24px;color:var(--ink-2);font-size:17px;line-height:1.75;">شارك ببعض التفاصيل وسيرد عليك أحد الشركاء خلال يوم عمل واحد باستبيان تحديد النطاق أو موعد اجتماع.</p>
+  </section>
+  <section class="contact-page">
+    <div class="contact-grid">
+      <form class="contact-form" id="contactForm">
+        <div class="field-row">
+          <div class="field"><label>اسمك</label><input type="text" placeholder="مثال: سارة المنصور" required/></div>
+          <div class="field"><label>الشركة</label><input type="text" placeholder="اسم الشركة" required/></div>
+        </div>
+        <div class="field-row">
+          <div class="field"><label>البريد الإلكتروني</label><input type="email" placeholder="name@company.com" required/></div>
+          <div class="field"><label>الهاتف (اختياري)</label><input type="tel" placeholder="+966 ..."/></div>
+        </div>
+        <div class="field-row">
+          <div class="field"><label>حجم الفريق في المملكة</label><select><option>المؤسسون فقط</option><option>1 – 10</option><option selected>11 – 50</option><option>51 – 200</option><option>200+</option></select></div>
+          <div class="field"><label>الحالة</label><select><option>نستكشف الدخول إلى المملكة</option><option selected>كيان قائم، عمليات مبكرة</option><option>نراجع مزوّدينا</option><option>نمو أو إعادة هيكلة</option></select></div>
+        </div>
+        <div class="field">
+          <label>الخدمات المطلوبة</label>
+          <div class="chips" id="chips">
+            <button type="button" class="chip active" data-s="hr">الموارد البشرية</button>
+            <button type="button" class="chip" data-s="acc">المحاسبة والضرائب</button>
+            <button type="button" class="chip" data-s="visa">التأشيرات والإقامة</button>
+            <button type="button" class="chip" data-s="all">اشتراك متكامل</button>
+          </div>
+        </div>
+        <div class="field"><label>كيف يمكننا مساعدتك؟</label><textarea placeholder="بضعة أسطر عن وضعك وما تحتاجه."></textarea></div>
+        <div style="display:flex;gap:16px;align-items:center;padding-top:12px;">
+          <button type="submit" class="btn btn-primary">أرسل إلى مكتب الشريك ${AL}</button>
+          <span style="font-size:12px;color:var(--ink-mute);">رد خلال يوم عمل واحد</span>
+        </div>
+      </form>
+      <aside class="contact-info">
+        <div class="info-block"><h4>الرياض · المقر الرئيسي</h4><p>طريق الملك فهد، حي العليا<br/>برج 7، الدور 18<br/>الرياض 12211</p></div>
+        <div class="info-block"><h4>مكتب الشريك</h4><p><a href="mailto:hello@flexigulf.sa">hello@flexigulf.sa</a></p><p><a href="tel:+966112000000" style="direction:ltr;display:inline-block;">+966 11 200 0000</a></p><p style="font-size:13px;color:var(--ink-mute);margin-top:8px;">الأحد – الخميس · 08:30 – 17:30</p></div>
+        <div class="info-block" style="border:none;"><h4>المكاتب الإقليمية</h4><p style="font-size:18px;">جدة — كورنيش التجاري<br/>الدمام — البوابة التجارية</p></div>
+      </aside>
+    </div>
+    <div class="map-ph"><span class="map-lbl">الخريطة — العليا، الرياض</span><div class="map-pin"></div></div>
+  </section>
+</div>`;
+
+function bindDynamic(){
+  document.querySelectorAll('#stmtSide .statement-tab').forEach(tab=>{
+    tab.addEventListener('click',()=>{
+      document.querySelectorAll('#stmtSide .statement-tab').forEach(t=>t.classList.remove('active'));
+      tab.classList.add('active');
+      const el=document.getElementById('stmt-'+tab.dataset.s);
+      if(el){const y=el.getBoundingClientRect().top+window.scrollY-100;window.scrollTo({top:y,behavior:'smooth'});}
+    });
+  });
+  document.querySelectorAll('#chips .chip').forEach(c=>c.addEventListener('click',()=>c.classList.toggle('active')));
+  const form=document.getElementById('contactForm');
+  if(form){form.addEventListener('submit',e=>{e.preventDefault();toast('شكراً — سيتواصل معك أحد الشركاء قريباً.');form.reset();});}
+  const quotes=[
+    {q:'انتقلنا من مزوّد كبير إلى فليكسي جلف متوقّعين تراجعاً في الصرامة. بعد عامين، الحسابات تُغلق أسرع، والرواتب أهدأ، ولديّ شريك يرد على الهاتف يوم الجمعة.',name:'سارة م.',role:'CFO، مدارج كابيتال'},
+    {q:'استغرق توسّعنا إلى الرياض أربعة أشهر لا أربعة عشر. تولّت فليكسي جلف تأشيرات الكتلة وتسجيل GOSI وأول كشف رواتب — فوصلنا مستعدّين للبيع.',name:'جيمس أو.',role:'المدير الإقليمي، نورث ويند تك'},
+    {q:'ما نقدّره أكثر هو القدرة على التنبؤ. في كل شهر، في الوقت ذاته، تصل الوثائق نفسها. في مثل عملنا، هذا الهدوء يساوي الكثير.',name:'محمد أ.',role:'الرئيس التنفيذي، زينث هيلث'}
+  ];
+  const dots=document.querySelectorAll('#testiNav .testi-dot');
+  const qbox=document.getElementById('testiQuote');
+  if(dots.length&&qbox){
+    let i=0;
+    const render=()=>{const q=quotes[i];qbox.innerHTML=`<div class="testi-quote"><span class="mark">«</span>${q.q}<span class="mark">»</span></div><div class="testi-meta"><span class="name">${q.name}</span><span>·</span><span>${q.role}</span></div>`;dots.forEach((d,di)=>d.classList.toggle('active',di===i));};
+    dots.forEach(d=>d.addEventListener('click',()=>{i=+d.dataset.i;render();}));
+    clearInterval(window._tInt);window._tInt=setInterval(()=>{i=(i+1)%quotes.length;render();},7000);
+  }
+}
+
+if(!location.hash)location.hash='#/';
+route();
+</script>
+</body>
+</html>

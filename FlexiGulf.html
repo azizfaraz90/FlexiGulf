@@ -1,0 +1,1296 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>FlexiGulf — HR Outsourcing, Accountancy & Visa Services in Saudi Arabia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+
+<style>
+  :root {
+    --ink: #1C1A18;
+    --ink-2: #2A2724;
+    --ink-mute: #6B655D;
+    --cream: #F5F0E8;
+    --cream-2: #EDE5D6;
+    --sand: #E8DDCB;
+    --hairline: #D8CFBE;
+    --gold: #B98833;
+    --gold-deep: #8E6620;
+    --gold-wash: #F0E4CD;
+    --charcoal: #121212;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--cream); color: var(--ink); font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+  body {
+    font-size: 16px; line-height: 1.55;
+    background-image:
+      radial-gradient(1200px 600px at 80% -10%, rgba(185,136,51,0.06), transparent 60%),
+      radial-gradient(900px 500px at -10% 40%, rgba(28,26,24,0.04), transparent 60%);
+  }
+  a { color: inherit; text-decoration: none; }
+  button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+  img, svg { display: block; }
+
+  .serif { font-family: 'Fraunces', Georgia, serif; font-weight: 400; letter-spacing: -0.01em; }
+  .mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  .eyebrow .dot {
+    display: inline-block; width: 6px; height: 6px; background: var(--gold); border-radius: 50%;
+    margin-right: 10px; vertical-align: middle;
+  }
+
+  /* ---------- Nav ---------- */
+  .nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(245,240,232,0.82);
+    backdrop-filter: blur(16px) saturate(1.2);
+    -webkit-backdrop-filter: blur(16px) saturate(1.2);
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s ease, background 0.3s ease;
+  }
+  .nav.scrolled { border-color: var(--hairline); background: rgba(245,240,232,0.95); }
+  .nav-inner {
+    max-width: 1360px; margin: 0 auto; padding: 18px 40px;
+    display: flex; align-items: center; justify-content: space-between; gap: 40px;
+  }
+  .nav-logo { height: 36px; }
+  .nav-logo svg { height: 36px; width: auto; }
+  /* Language switcher */
+  .lang-switch {
+    display: inline-flex; align-items: center; gap: 2px;
+    border: 1px solid var(--hairline); border-radius: 999px;
+    padding: 4px; font-size: 12px; font-weight: 600;
+    font-family: 'JetBrains Mono', monospace; letter-spacing: 0.04em;
+  }
+  .lang-switch a {
+    padding: 5px 10px; border-radius: 999px; transition: all 0.2s;
+    color: var(--ink-mute);
+  }
+  .lang-switch a.active { background: var(--ink); color: var(--cream); }
+  .lang-switch a:hover:not(.active) { color: var(--ink); background: rgba(28,26,24,0.05); }
+  .nav-links { display: flex; gap: 6px; align-items: center; }
+  .nav-link {
+    position: relative;
+    font-size: 13.5px; font-weight: 500; color: var(--ink-2);
+    padding: 10px 16px; border-radius: 999px; transition: all 0.2s ease;
+  }
+  .nav-link:hover { color: var(--ink); background: rgba(28,26,24,0.04); }
+  .nav-link.active { color: var(--ink); }
+  .nav-link.active::before {
+    content: ''; position: absolute; left: 16px; right: 16px; bottom: 4px;
+    height: 2px; background: var(--gold);
+  }
+  .nav-cta {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--ink); color: var(--cream);
+    padding: 11px 18px 11px 20px;
+    border-radius: 999px; font-size: 13px; font-weight: 500;
+    transition: all 0.2s ease;
+  }
+  .nav-cta:hover { background: var(--gold-deep); transform: translateY(-1px); }
+  .nav-cta .arrow { transition: transform 0.2s ease; }
+  .nav-cta:hover .arrow { transform: translate(2px, -2px); }
+
+  /* ---------- Page container & transitions ---------- */
+  .page { max-width: 1360px; margin: 0 auto; padding: 0 40px; }
+  .page-wrap {
+    opacity: 0; transform: translateY(12px);
+    animation: fadeUp 0.5s cubic-bezier(0.2,0.8,0.2,1) forwards;
+  }
+  @keyframes fadeUp { to { opacity: 1; transform: none; } }
+
+  /* ---------- Buttons ---------- */
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 14px 22px; border-radius: 999px;
+    font-size: 14px; font-weight: 500;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+  .btn-primary { background: var(--ink); color: var(--cream); }
+  .btn-primary:hover { background: var(--gold-deep); transform: translateY(-1px); }
+  .btn-ghost { background: transparent; color: var(--ink); border: 1px solid var(--hairline); }
+  .btn-ghost:hover { border-color: var(--ink); background: rgba(28,26,24,0.03); }
+  .btn-gold { background: var(--gold); color: white; }
+  .btn-gold:hover { background: var(--gold-deep); }
+
+  /* ---------- HOME: Hero ---------- */
+  .hero { padding: 80px 0 100px; position: relative; }
+  .hero-meta {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 48px; padding-bottom: 20px;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .hero-meta .meta-item { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-mute); }
+  .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 80px; align-items: end; }
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(54px, 7vw, 104px);
+    line-height: 0.98;
+    letter-spacing: -0.035em;
+    color: var(--ink);
+  }
+  .hero h1 .italic { font-style: italic; font-weight: 400; color: var(--gold-deep); font-variation-settings: "opsz" 144; }
+  .hero h1 .amp { font-style: italic; color: var(--gold); font-weight: 300; }
+  .hero-right { padding-bottom: 20px; }
+  .hero-lede {
+    font-size: 17px; color: var(--ink-2); line-height: 1.55;
+    max-width: 440px; margin-bottom: 32px;
+  }
+  .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+  .hero-stats {
+    margin-top: 80px;
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .stat {
+    padding: 28px 24px 28px 0;
+    border-right: 1px solid var(--hairline);
+  }
+  .stat:last-child { border-right: none; padding-right: 0; }
+  .stat-num { font-family: 'Fraunces', serif; font-size: 48px; line-height: 1; font-weight: 400; letter-spacing: -0.02em; }
+  .stat-num .unit { font-size: 22px; color: var(--gold); margin-left: 4px; }
+  .stat-label { margin-top: 10px; font-size: 12.5px; color: var(--ink-mute); letter-spacing: 0.02em; }
+
+  /* Hero decorative placeholder panel */
+  .hero-visual {
+    position: relative;
+    aspect-ratio: 4/5;
+    background: linear-gradient(180deg, var(--sand), var(--cream-2));
+    background-size: cover;
+    background-position: center;
+    border: 1px solid var(--hairline);
+    overflow: hidden;
+    border-radius: 2px;
+  }
+  .hero-visual::before { content: none; }
+  .hero-visual::after {
+    content: '';
+    position: absolute; inset: auto 0 0 0;
+    height: 40%;
+    background: linear-gradient(0deg, rgba(28,26,24,0.15), transparent);
+  }
+  .hero-visual-caption {
+    position: absolute; left: 20px; bottom: 20px; right: 20px;
+    font-family: 'Fraunces', serif; font-style: italic; font-size: 22px;
+    color: var(--ink); line-height: 1.25;
+  }
+  .hero-visual-tag {
+    position: absolute; top: 20px; right: 20px;
+    background: var(--ink); color: var(--cream);
+    font-family: 'JetBrains Mono', monospace; font-size: 10px;
+    padding: 6px 10px; letter-spacing: 0.08em;
+  }
+
+  /* ---------- Marquee ---------- */
+  .marquee {
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+    overflow: hidden; padding: 24px 0;
+    background: var(--cream);
+  }
+  .marquee-track {
+    display: flex; gap: 60px; white-space: nowrap;
+    animation: scroll 40s linear infinite;
+    font-family: 'Fraunces', serif; font-size: 22px; font-weight: 300;
+    color: var(--ink-2);
+  }
+  .marquee-track span { display: inline-flex; align-items: center; gap: 60px; }
+  .marquee-track .sep { color: var(--gold); }
+  @keyframes scroll { to { transform: translateX(-50%); } }
+
+  /* ---------- Services section ---------- */
+  .section { padding: 120px 0; }
+  .section-head {
+    display: grid; grid-template-columns: 1fr 2fr; gap: 80px;
+    align-items: end; margin-bottom: 64px;
+    padding-bottom: 32px; border-bottom: 1px solid var(--hairline);
+  }
+  .section-head h2 {
+    font-family: 'Fraunces', serif; font-weight: 300;
+    font-size: clamp(40px, 5vw, 68px); line-height: 1.02;
+    letter-spacing: -0.03em;
+  }
+  .section-head h2 .italic { font-style: italic; color: var(--gold-deep); }
+  .section-head p { max-width: 520px; color: var(--ink-2); font-size: 16px; }
+
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--hairline); border: 1px solid var(--hairline); }
+  .service-card {
+    background: var(--cream); padding: 40px 32px 32px;
+    display: flex; flex-direction: column; gap: 20px;
+    min-height: 360px; position: relative; overflow: hidden;
+    transition: background 0.3s ease;
+    cursor: pointer;
+  }
+  .service-card:hover { background: var(--cream-2); }
+  .service-num {
+    font-family: 'Fraunces', serif; font-style: italic; font-weight: 300;
+    font-size: 14px; color: var(--gold-deep);
+  }
+  .service-icon {
+    width: 56px; height: 56px; border: 1px solid var(--ink);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--ink);
+  }
+  .service-title { font-family: 'Fraunces', serif; font-size: 28px; font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; }
+  .service-desc { color: var(--ink-mute); font-size: 14.5px; flex-grow: 1; }
+  .service-cta {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 13px; font-weight: 500; color: var(--ink);
+    padding-top: 16px; border-top: 1px solid var(--hairline);
+  }
+  .service-cta .arrow { transition: transform 0.2s ease; }
+  .service-card:hover .service-cta .arrow { transform: translate(3px, -3px); }
+
+  /* ---------- Approach (process) ---------- */
+  .approach { background: var(--ink); color: var(--cream); margin: 60px 0; }
+  .approach-inner { max-width: 1360px; margin: 0 auto; padding: 100px 40px; }
+  .approach .eyebrow { color: rgba(245,240,232,0.5); }
+  .approach h2 { color: var(--cream); }
+  .approach h2 .italic { color: var(--gold); }
+  .approach-head { border-color: rgba(245,240,232,0.15); }
+  .approach-head p { color: rgba(245,240,232,0.7); }
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+  .step {
+    padding: 32px 24px 32px 0; border-right: 1px solid rgba(245,240,232,0.15);
+    display: flex; flex-direction: column; gap: 16px;
+  }
+  .step:last-child { border-right: none; }
+  .step-num { font-family: 'Fraunces', serif; font-style: italic; font-size: 60px; color: var(--gold); line-height: 1; }
+  .step-title { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 400; }
+  .step-desc { color: rgba(245,240,232,0.65); font-size: 13.5px; }
+
+  /* ---------- Two-up feature ---------- */
+  .two-up { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; padding: 120px 0; }
+  .two-up-visual {
+    aspect-ratio: 1/1;
+    background: linear-gradient(180deg, var(--sand), var(--cream-2));
+    background-size: cover;
+    background-position: center;
+    border: 1px solid var(--hairline); position: relative;
+  }
+  .two-up-visual::before {
+    content: none;
+  }
+  .two-up h3 { font-family: 'Fraunces', serif; font-weight: 300; font-size: 48px; line-height: 1.05; letter-spacing: -0.02em; margin: 16px 0 20px; }
+  .two-up h3 .italic { font-style: italic; color: var(--gold-deep); }
+  .two-up p { color: var(--ink-2); font-size: 15.5px; margin-bottom: 14px; max-width: 520px; }
+  .check-list { list-style: none; margin-top: 24px; display: flex; flex-direction: column; gap: 12px; }
+  .check-list li { display: flex; gap: 12px; align-items: flex-start; font-size: 14.5px; }
+  .check-list li::before {
+    content: ''; width: 16px; height: 16px; flex-shrink: 0;
+    margin-top: 3px;
+    background: var(--gold);
+    clip-path: polygon(0 50%, 40% 100%, 100% 0%, 40% 80%);
+  }
+
+  /* ---------- CTA band ---------- */
+  .cta-band {
+    padding: 100px 40px; margin: 60px auto; max-width: 1360px;
+    background: var(--gold-wash);
+    border: 1px solid var(--hairline);
+    display: grid; grid-template-columns: 1.4fr 1fr; gap: 60px; align-items: center;
+    position: relative; overflow: hidden;
+  }
+  .cta-band h3 { font-family: 'Fraunces', serif; font-weight: 300; font-size: 56px; line-height: 1.02; letter-spacing: -0.02em; }
+  .cta-band h3 .italic { font-style: italic; color: var(--gold-deep); }
+  .cta-band p { color: var(--ink-2); margin: 16px 0 28px; max-width: 480px; }
+
+  /* ---------- Footer ---------- */
+  footer { background: var(--charcoal); color: var(--cream); padding: 80px 0 32px; }
+  .footer-inner { max-width: 1360px; margin: 0 auto; padding: 0 40px; }
+  .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; padding-bottom: 60px; border-bottom: 1px solid rgba(245,240,232,0.15); }
+  .footer-brand h4 { font-family: 'Fraunces', serif; font-size: 32px; font-weight: 300; margin-bottom: 16px; max-width: 360px; line-height: 1.15; }
+  .footer-brand p { color: rgba(245,240,232,0.6); font-size: 14px; max-width: 360px; }
+  .footer-col h5 { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .footer-col a { color: rgba(245,240,232,0.75); font-size: 14px; transition: color 0.2s; }
+  .footer-col a:hover { color: var(--gold); }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 32px; font-size: 12px; color: rgba(245,240,232,0.5); font-family: 'JetBrains Mono', monospace; letter-spacing: 0.05em; }
+
+  /* ---------- Corporate page ---------- */
+  .page-hero { padding: 80px 0 60px; border-bottom: 1px solid var(--hairline); }
+  .page-hero h1 { font-family: 'Fraunces', serif; font-weight: 300; font-size: clamp(48px, 6vw, 88px); line-height: 1; letter-spacing: -0.03em; margin-top: 24px; max-width: 1000px; }
+  .page-hero h1 .italic { font-style: italic; color: var(--gold-deep); }
+  .page-hero .page-crumb { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.14em; color: var(--ink-mute); text-transform: uppercase; }
+
+  .statements { padding: 100px 0; display: grid; grid-template-columns: 240px 1fr; gap: 80px; }
+  .statements-sidebar {
+    position: sticky; top: 120px; height: fit-content;
+    display: flex; flex-direction: column; gap: 4px;
+  }
+  .statement-tab {
+    text-align: left; padding: 12px 0; font-size: 14px; font-weight: 500; color: var(--ink-mute);
+    border-bottom: 1px solid var(--hairline); transition: color 0.2s;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .statement-tab .num { font-family: 'Fraunces', serif; font-style: italic; font-size: 14px; color: var(--gold); }
+  .statement-tab.active { color: var(--ink); }
+  .statement-tab:hover { color: var(--ink); }
+
+  .statement-card {
+    padding: 60px 0; border-bottom: 1px solid var(--hairline);
+  }
+  .statement-card:last-child { border-bottom: none; }
+  .statement-card h3 { font-family: 'Fraunces', serif; font-weight: 300; font-size: 56px; line-height: 1.02; letter-spacing: -0.02em; margin-bottom: 24px; }
+  .statement-card h3 .italic { font-style: italic; color: var(--gold-deep); }
+  .statement-card .lede { font-family: 'Fraunces', serif; font-size: 22px; line-height: 1.4; color: var(--ink-2); margin-bottom: 20px; max-width: 760px; font-weight: 300; }
+  .statement-card p { color: var(--ink-2); font-size: 15px; max-width: 760px; margin-bottom: 12px; }
+
+  .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--hairline); border: 1px solid var(--hairline); margin-top: 32px; }
+  .value { background: var(--cream); padding: 28px 24px; }
+  .value-num { font-family: 'Fraunces', serif; font-style: italic; font-size: 13px; color: var(--gold-deep); }
+  .value-title { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 400; margin: 8px 0 10px; letter-spacing: -0.01em; }
+  .value-desc { font-size: 13.5px; color: var(--ink-mute); }
+
+  /* Leadership */
+  .leadership { padding: 100px 0; border-top: 1px solid var(--hairline); }
+  .leaders { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 48px; }
+  .leader-visual {
+    aspect-ratio: 4/5;
+    background: linear-gradient(180deg, var(--sand), var(--cream-2));
+    background-size: cover;
+    background-position: center top;
+    border: 1px solid var(--hairline); position: relative;
+  }
+  .leader-visual::before {
+    content: none;
+    color: var(--gold-deep); opacity: 0.7;
+  }
+  .leader-name { font-family: 'Fraunces', serif; font-size: 24px; font-weight: 400; margin-top: 20px; letter-spacing: -0.01em; }
+  .leader-role { font-size: 13px; color: var(--ink-mute); margin-top: 4px; }
+
+  /* ---------- Services page ---------- */
+  .services-page { padding: 80px 0 120px; }
+  .service-detail {
+    display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: start;
+    padding: 80px 0; border-bottom: 1px solid var(--hairline);
+  }
+  .service-detail:last-child { border-bottom: none; }
+  .service-detail-left { position: sticky; top: 120px; }
+  .service-detail h3 { font-family: 'Fraunces', serif; font-weight: 300; font-size: 60px; line-height: 1; letter-spacing: -0.03em; margin: 20px 0 24px; }
+  .service-detail h3 .italic { font-style: italic; color: var(--gold-deep); }
+  .service-detail > .service-detail-left > p { color: var(--ink-2); font-size: 15.5px; margin-bottom: 24px; max-width: 480px; }
+  .service-features { display: flex; flex-direction: column; gap: 2px; background: var(--hairline); border: 1px solid var(--hairline); }
+  .feat {
+    background: var(--cream); padding: 24px 28px;
+    display: grid; grid-template-columns: 40px 1fr; gap: 20px; align-items: start;
+    transition: background 0.2s;
+  }
+  .feat:hover { background: var(--cream-2); }
+  .feat-num { font-family: 'Fraunces', serif; font-style: italic; font-size: 20px; color: var(--gold-deep); }
+  .feat-title { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 400; letter-spacing: -0.01em; margin-bottom: 6px; }
+  .feat-desc { font-size: 14px; color: var(--ink-mute); }
+
+  /* ---------- Clients page ---------- */
+  .clients-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--hairline); border: 1px solid var(--hairline); margin: 60px 0; }
+  .client-cell {
+    background: var(--cream); padding: 40px 28px;
+    display: flex; flex-direction: column; gap: 8px; align-items: flex-start;
+    min-height: 160px; transition: background 0.2s;
+  }
+  .client-cell:hover { background: var(--cream-2); }
+  .client-name { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 400; letter-spacing: -0.01em; }
+  .client-sector { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--gold-deep); letter-spacing: 0.1em; text-transform: uppercase; }
+  .client-note { font-size: 13px; color: var(--ink-mute); margin-top: auto; }
+
+  .testimonial { padding: 120px 0; background: var(--cream-2); margin: 60px 0; }
+  .testimonial-inner { max-width: 1360px; margin: 0 auto; padding: 0 40px; }
+  .testimonial-quote {
+    font-family: 'Fraunces', serif; font-weight: 300; font-style: italic;
+    font-size: clamp(32px, 4vw, 56px); line-height: 1.15; letter-spacing: -0.02em;
+    max-width: 1100px;
+  }
+  .testimonial-quote .mark { color: var(--gold); font-style: normal; }
+  .testimonial-meta { display: flex; gap: 16px; align-items: center; margin-top: 40px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-mute); }
+  .testimonial-meta .name { color: var(--ink); font-weight: 500; }
+  .testi-nav { display: flex; gap: 8px; margin-top: 40px; }
+  .testi-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--hairline); transition: all 0.2s; cursor: pointer; border: none; padding: 0; }
+  .testi-dot.active { background: var(--gold); width: 24px; border-radius: 4px; }
+
+  .sectors { padding: 100px 0; }
+  .sector-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; border-top: 1px solid var(--hairline); }
+  .sector {
+    display: grid; grid-template-columns: 60px 1fr auto; gap: 24px;
+    padding: 32px 0; border-bottom: 1px solid var(--hairline); align-items: center;
+    border-right: 1px solid var(--hairline); padding-right: 40px;
+  }
+  .sector:nth-child(2n) { border-right: none; padding-right: 0; padding-left: 40px; }
+  .sector-num { font-family: 'Fraunces', serif; font-style: italic; font-size: 14px; color: var(--gold-deep); }
+  .sector-name { font-family: 'Fraunces', serif; font-size: 24px; font-weight: 400; letter-spacing: -0.01em; }
+  .sector-count { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--ink-mute); }
+
+  /* ---------- Contact page ---------- */
+  .contact-page { padding: 80px 0 120px; }
+  .contact-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; margin-top: 60px; }
+  .contact-form { display: flex; flex-direction: column; gap: 20px; }
+  .field { display: flex; flex-direction: column; gap: 8px; }
+  .field label { font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-mute); }
+  .field input, .field textarea, .field select {
+    border: none; border-bottom: 1px solid var(--hairline);
+    background: transparent; padding: 10px 0; font-family: 'Inter', sans-serif;
+    font-size: 16px; color: var(--ink);
+    outline: none; transition: border-color 0.2s;
+  }
+  .field input:focus, .field textarea:focus, .field select:focus { border-color: var(--gold); }
+  .field textarea { resize: vertical; min-height: 120px; font-family: 'Inter', sans-serif; }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .service-chips { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px; }
+  .chip {
+    padding: 8px 14px; border-radius: 999px; border: 1px solid var(--hairline);
+    font-size: 13px; cursor: pointer; transition: all 0.2s;
+    background: var(--cream); color: var(--ink-2);
+  }
+  .chip.active { background: var(--ink); color: var(--cream); border-color: var(--ink); }
+  .chip:hover:not(.active) { border-color: var(--ink-2); }
+
+  .contact-info { display: flex; flex-direction: column; gap: 32px; }
+  .info-block { padding-bottom: 24px; border-bottom: 1px solid var(--hairline); }
+  .info-block h4 { font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.12em; color: var(--gold-deep); text-transform: uppercase; margin-bottom: 12px; }
+  .info-block p { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 400; line-height: 1.3; }
+  .info-block a { color: var(--ink); border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+  .info-block a:hover { border-color: var(--gold); }
+  .info-small { font-size: 13px; color: var(--ink-mute); font-family: 'Inter', sans-serif !important; font-weight: 400 !important; }
+
+  .map-placeholder {
+    aspect-ratio: 16/10; margin-top: 60px;
+    background:
+      linear-gradient(90deg, rgba(185,136,51,0.05) 1px, transparent 1px),
+      linear-gradient(rgba(185,136,51,0.05) 1px, transparent 1px),
+      linear-gradient(180deg, var(--sand), var(--cream-2));
+    background-size: 40px 40px, 40px 40px, 100% 100%;
+    border: 1px solid var(--hairline); position: relative;
+  }
+  .map-pin {
+    position: absolute; top: 48%; left: 54%;
+    width: 14px; height: 14px; background: var(--gold); border-radius: 50%;
+    box-shadow: 0 0 0 6px rgba(185,136,51,0.25), 0 0 0 14px rgba(185,136,51,0.12);
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse { 50% { box-shadow: 0 0 0 10px rgba(185,136,51,0.2), 0 0 0 22px rgba(185,136,51,0.05); } }
+  .map-label { position: absolute; top: 16px; left: 16px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--ink-mute); letter-spacing: 0.1em; }
+
+  .toast {
+    position: fixed; bottom: 32px; right: 32px; z-index: 100;
+    background: var(--ink); color: var(--cream);
+    padding: 16px 22px; border-radius: 999px;
+    font-size: 13.5px; font-weight: 500;
+    display: flex; align-items: center; gap: 10px;
+    transform: translateY(100px); opacity: 0;
+    transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .toast.show { transform: none; opacity: 1; }
+  .toast .check {
+    width: 18px; height: 18px; border-radius: 50%; background: var(--gold);
+    display: inline-flex; align-items: center; justify-content: center;
+    color: var(--ink); font-size: 11px; font-weight: 700;
+  }
+
+  /* Responsive */
+  @media (max-width: 960px) {
+    .nav-inner { padding: 14px 20px; }
+    .nav-links { display: none; }
+    .page { padding: 0 20px; }
+    .hero { padding: 48px 0 60px; }
+    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+    .hero-stats { grid-template-columns: repeat(2, 1fr); }
+    .stat:nth-child(2) { border-right: none; }
+    .section-head { grid-template-columns: 1fr; gap: 24px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .steps { grid-template-columns: 1fr 1fr; }
+    .two-up { grid-template-columns: 1fr; padding: 60px 0; }
+    .cta-band { grid-template-columns: 1fr; padding: 60px 28px; margin: 40px 20px; }
+    .footer-top { grid-template-columns: 1fr; gap: 40px; }
+    .statements { grid-template-columns: 1fr; gap: 24px; }
+    .statements-sidebar { position: static; flex-direction: row; overflow-x: auto; }
+    .values-grid { grid-template-columns: 1fr; }
+    .leaders { grid-template-columns: 1fr; }
+    .service-detail { grid-template-columns: 1fr; gap: 32px; }
+    .service-detail-left { position: static; }
+    .clients-grid { grid-template-columns: 1fr 1fr; }
+    .sector-list { grid-template-columns: 1fr; }
+    .sector:nth-child(n) { border-right: none; padding: 28px 0; }
+    .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    .field-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============= NAV ============= -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#/" class="nav-logo" aria-label="FlexiGulf home">
+      <!-- Logo SVG (inlined for standalone) -->
+      <svg viewBox="0 0 152 34" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="width: 170px;">
+        <!-- Mark -->
+        <path d="M15.2222 9.23139C15.0124 9.28677 14.7784 9.37221 14.5715 9.32997C14.0006 8.13344 13.4194 6.95034 12.5374 5.94639C12.116 5.4668 9.97906 3.80269 9.92847 3.42058C9.90525 3.24546 9.92312 3.20996 10.0284 3.07107C10.5942 2.84198 11.9071 3.80231 12.4562 4.09184C12.9105 4.32924 13.3801 4.53604 13.8619 4.71084C17.2761 5.94191 20.3199 5.5812 23.2204 3.3268C23.5591 3.06348 24.7205 2.15391 25.0736 2.61621C25.0574 3.32674 23.0828 5.59358 22.6716 6.49491C22.3585 7.1812 22.0516 8.08162 21.7216 8.70958C21.5868 8.85427 21.3391 8.85041 21.1308 8.87498C20.8033 9.43969 20.9744 13.5688 20.9856 14.4595C20.6085 14.8233 18.3074 17.0301 18.0298 17.0691C17.6674 16.7855 15.5433 14.7656 15.2891 14.4006C15.2268 13.113 15.3805 10.259 15.2222 9.23139Z" fill="#B98833"/>
+        <path d="M15.2222 9.23139C16.6729 8.36008 19.6278 8.03151 21.1308 8.87498C20.8033 9.43969 20.9744 13.5688 20.9856 14.4595C20.6085 14.8233 18.3074 17.0301 18.0298 17.0691C17.6674 16.7855 15.5433 14.7656 15.2891 14.4006C15.2268 13.113 15.3805 10.259 15.2222 9.23139Z" fill="#232121"/>
+        <path d="M25.6754 15.0574C27.0682 16.2448 28.182 18.651 27.9346 20.4916C26.9573 20.6831 25.024 22.5805 24.3512 23.3641C22.0072 26.094 21.0629 30.4943 20.9835 34H15.2932C15.2808 31.8166 15.7896 28.4325 16.4051 26.3354C18.0268 20.8091 20.836 17.8167 25.6754 15.0574Z" fill="#232121"/>
+        <path d="M7.95305 20.273C7.80045 18.8799 9.44557 15.6119 10.7931 15.1603C13.4743 16.6359 14.7269 17.7696 16.7313 20.0699C16.0038 21.2127 15.3915 22.425 14.9033 23.6888C14.5749 24.5366 14.1585 25.8555 13.7319 26.6033C12.9005 24.0349 10.566 21.5483 8.15573 20.2944C8.08755 20.2589 8.02323 20.2461 7.95305 20.273Z" fill="#232121"/>
+        <path d="M25.2549 14.4917C26.4363 13.138 27.2116 12.3161 28.0552 10.671C28.4454 9.90997 28.7097 8.36178 29.2253 8.0563C30.1256 8.09824 29.4858 10.5013 29.4219 11.1761C29.0741 14.8498 30.5063 18.5307 33.7791 20.448C34.313 20.7597 35.2103 20.9897 35.2963 21.6676C35.2332 21.7699 35.1725 21.8835 35.0246 21.8823C33.5402 21.8708 32.1463 21.1408 30.642 20.9692C29.8594 20.8799 28.3955 21.1225 27.9346 20.4916C28.182 18.651 27.0682 16.2448 25.6754 15.0574L25.2549 14.4917Z" fill="#B98833"/>
+        <path d="M0 20.6958C1.23954 20.4855 3.37485 19.0628 4.30605 18.2199C6.26663 16.4121 7.40355 13.8809 7.4531 11.2136C7.46393 10.4224 7.27317 9.50093 7.3079 8.79079C7.45666 8.54582 7.58041 8.45532 7.86254 8.50417C7.94 8.57291 8.10544 8.7268 8.14179 8.81611C8.91602 10.7177 9.6004 12.6467 10.9381 14.2462C11.2167 14.5793 11.0195 14.8683 10.7931 15.1603C9.44557 15.612 7.80045 18.88 7.95305 20.2731C7.85334 20.5463 7.92123 20.46 7.68197 20.6347C7.36713 20.705 6.55584 20.6047 6.21467 20.5743C4.16584 20.3919 2.44133 20.83 0.532358 21.4982C0.383853 21.5501 0.129533 21.3559 0 21.2554V20.6958Z" fill="#B98833"/>
+        <path d="M16.6831 0H18.3516C20.0913 0.771525 20.1759 3.17712 18.5565 4.01764C18.0267 4.29113 17.4091 4.33947 16.8433 4.15174C14.8547 3.50594 14.7987 0.916025 16.6831 0Z" fill="#232121"/>
+        <!-- Wordmark -->
+        <path d="M41.2044 7.58334C41.7554 7.52677 42.6642 7.56151 43.2436 7.56337L46.902 7.57042C48.7299 7.57235 50.5604 7.5428 52.3865 7.57057C52.8036 7.57688 53.1797 7.8318 53.2007 8.26853C53.2286 8.8469 53.338 9.50649 52.9484 9.99385C52.5344 10.1876 44.1992 10.1978 43.2692 10.1226C43.3394 12.2033 43.299 14.4431 43.305 16.5404C46.1293 16.6814 48.9715 16.5452 51.7978 16.6015C51.9589 16.6047 52.3232 16.6529 52.4268 16.7589C52.656 16.993 52.6282 17.5521 52.6388 17.8646C52.6503 17.9472 52.6568 18.0306 52.6584 18.1141C52.6656 18.5235 52.5612 19.0075 52.0588 19.0437C51.0382 19.1174 49.9915 19.0876 48.9662 19.0867C47.0666 19.0778 45.1671 19.0842 43.2677 19.1058C43.3575 21.5375 43.3095 24.0369 43.2598 26.4691C43.2403 27.4278 41.1011 27.2796 40.7253 26.9124C40.6342 26.5196 40.6004 26.1195 40.5876 25.7171C40.537 24.1136 40.4649 8.4758 40.6752 7.94628C40.7517 7.75341 41.0274 7.6624 41.2044 7.58334Z" fill="#B98833"/>
+        <path d="M56.7977 7.36521C57.3821 7.31282 58.2231 7.21406 58.7192 7.52641C59.1818 8.02602 59.066 10.352 59.0661 11.1L59.066 15.3907C59.0656 19.0151 59.1314 22.8757 59.0365 26.4847L58.6247 27.0656C58.1229 27.1522 57.0625 27.3249 56.6429 26.9325C56.5071 26.8054 56.4555 26.1234 56.4554 25.9066C56.4506 20.0247 56.4558 14.1415 56.454 8.25986C56.4538 7.81942 56.4788 7.65127 56.7977 7.36521Z" fill="#B98833"/>
+        <path d="M67.7915 12.3532C70.0327 12.2678 71.2535 12.2243 73.1737 13.788C74.3707 14.7629 75.1957 16.7744 75.2914 18.273C75.3181 18.6882 75.4339 20.3212 75.1349 20.5948C74.9813 20.7618 74.6838 20.8475 74.4546 20.857C71.3175 20.9868 68.136 20.8157 65 20.9273C65.0255 21.1779 65.0291 21.4428 65.0573 21.6924C65.378 24.5375 68.2861 25.5621 70.7426 24.6791C71.5081 24.404 71.9788 23.9457 72.5654 23.4388C72.855 23.0814 74.0964 23.2148 74.557 23.2397L75.0288 23.8261C74.7981 24.4214 74.6267 24.921 74.2172 25.4223C73.2725 26.5803 71.429 27.2249 69.9886 27.3708C68.0659 27.5655 66.3707 27.2983 64.8516 26.0473C63.4539 24.8965 62.57 23.0302 62.4316 21.2344C62.2429 18.7869 62.3824 16.4403 64.0155 14.4593C64.8908 13.3976 66.4379 12.4837 67.7915 12.3532ZM64.975 18.537C66.1829 18.6527 67.5669 18.6187 68.7939 18.6101C69.9102 18.6154 71.6835 18.6674 72.7427 18.5356C72.5801 16.0758 71.3556 14.9573 68.9463 14.7313C66.5457 14.9074 65.2482 16.117 64.975 18.537Z" fill="#B98833"/>
+        <path d="M77.8984 12.6309C78.3992 12.6138 79.6381 12.4842 79.9668 12.7994C81.4201 14.1914 82.6093 16.2149 83.9625 17.6914C84.9908 16.6686 87.3455 13.1788 88.1979 12.6283C88.8901 12.6034 90.1684 12.3814 90.5237 13.018C90.5972 13.7393 89.7804 14.5733 89.3501 15.1316C88.2499 16.5588 87.0554 17.9199 85.9552 19.3474C85.5902 19.8208 85.8313 20.0588 86.1466 20.4513C87.6089 22.2621 89.1223 24.0486 90.5104 25.9154C90.753 26.2409 90.8843 26.5767 90.6343 26.9308C90.4436 27.1018 90.158 27.1227 89.9028 27.165C89.3812 27.1844 88.9331 27.1603 88.4116 27.1336C87.3603 26.414 84.3157 21.9164 83.8475 21.8841C83.1005 22.5386 82.4305 23.5737 81.8177 24.3753C81.1159 25.278 80.3993 26.1687 79.6678 27.0471C79.1306 27.1524 78.4377 27.2691 77.8976 27.1783C77.6706 27.1402 77.4288 27.0636 77.2923 26.8649C76.5177 25.7373 81.8571 21.0381 82.0618 19.7836C82.0982 19.5592 81.9372 19.2884 81.8229 19.1073C81.4913 18.5812 81.0247 18.0986 80.6322 17.6144C79.7286 16.4975 78.805 15.3866 77.9303 14.2469C77.6558 13.8886 77.319 13.4407 77.382 12.9669C77.4785 12.775 77.6929 12.7177 77.8984 12.6309Z" fill="#B98833"/>
+        <path d="M94.1716 12.6328C94.7005 12.597 95.5967 12.5254 96.0344 12.7864C96.2169 12.9865 96.3594 13.5909 96.3586 13.8666C96.3549 18.0429 96.4773 22.3076 96.3549 26.4778L95.9432 27.0567C95.4305 27.1575 94.4839 27.2999 94.0187 26.9928C93.8125 26.8565 93.7695 26.1896 93.7672 25.929C93.7339 22.3241 93.8014 18.7187 93.7546 15.1139C93.7457 14.4293 93.5603 13.0312 94.1716 12.6328Z" fill="#B98833"/>
+        <path d="M93.8006 7.37085C93.8311 7.36769 93.8607 7.365 93.8911 7.36279C94.5574 7.31672 95.869 7.17006 96.3586 7.59594C96.625 8.11336 96.5211 9.25615 96.467 9.84878C96.4462 10.0813 96.2934 10.2578 96.1302 10.4172C95.5678 10.504 94.0759 10.5801 93.6604 10.2208C93.3117 9.67157 93.2924 7.83001 93.8006 7.37085Z" fill="#B98833"/>
+        <path d="M107.288 7.30511C107.989 7.24915 108.694 7.26631 109.391 7.35633C112.068 7.71836 115.573 9.59475 115.791 12.7937C115.846 13.5909 113.823 13.3293 113.311 13.2418C112.748 12.6351 112.475 11.8604 111.819 11.2515C109.788 9.36521 105.947 9.43855 104.037 11.4693C102.12 13.6512 102.844 16.6775 102.717 19.3144C102.464 24.5815 108.484 26.5717 112.056 23.3191C113.143 22.3289 113.369 20.3784 113.305 18.9047C112.265 18.8478 110.909 18.8854 109.846 18.8849C109.519 18.874 109.029 18.9421 108.76 18.735C108.567 18.5859 108.49 18.3105 108.46 18.0796C108.401 17.6148 108.416 16.9284 108.715 16.5498C108.85 16.3802 109.02 16.3743 109.222 16.3529C109.883 16.2829 115.437 16.2178 115.735 16.4664C115.973 16.6654 116.058 16.9859 116.081 17.2843C116.122 17.8272 116.088 18.3999 116.082 18.9453C116.059 21.1072 115.824 23.1867 114.361 24.8927C112.976 26.5073 110.917 27.2825 108.836 27.4417C106.576 27.6146 104.184 27.1415 102.431 25.6303C100.735 24.1686 100.126 22.0491 99.9694 19.8854C99.8996 18.9243 99.9197 17.9475 99.9204 16.984C99.9219 14.3825 99.9924 11.7981 101.789 9.72674C103.211 8.08679 105.179 7.45438 107.288 7.30511Z" fill="#232121"/>
+        <path d="M119.788 12.5557C120.239 12.5456 121.496 12.464 121.756 12.8137C122.163 13.5193 121.893 14.7122 121.963 15.4947C122.202 18.1799 121.166 22.0676 123.228 24.1404C123.876 24.7911 125.005 24.9881 125.861 24.9332C129.595 24.6936 129.524 21.7519 129.52 18.8633C129.518 17.4259 129.508 15.9884 129.491 14.551C129.479 13.24 129.317 11.9026 131.864 12.7619C132.286 12.9043 132.136 16.1294 132.131 16.8887L132.137 22.8437C132.137 24.082 132.22 25.9587 131.969 27.0917C131.045 27.1755 130.567 27.1892 129.651 27.0707C129.531 26.6001 129.485 26.2 129.422 25.7189C129.257 25.89 129.087 26.0565 128.912 26.2182C126.808 28.1513 122.763 27.8078 120.89 25.7084C118.997 23.5864 119.418 20.4871 119.384 17.8597C119.365 16.3317 119.324 14.7638 119.426 13.2435C119.448 12.9109 119.548 12.7755 119.788 12.5557Z" fill="#232121"/>
+        <path d="M136.67 7.29228C137.288 7.26557 138.262 7.12768 138.717 7.59908C138.903 8.5634 138.867 26.4972 138.76 26.7396C138.667 26.9507 138.558 27.0454 138.343 27.1247C137.829 27.1755 136.68 27.2823 136.304 26.8876C136.063 25.9699 136.13 8.27091 136.252 7.77613C136.315 7.52069 136.454 7.42212 136.67 7.29228Z" fill="#232121"/>
+        <path d="M144.498 12.5494C144.461 7.71874 145.441 6.19664 150.534 6.42359C151.294 6.45744 151.459 6.63936 151.938 7.16693V8.24893C151.583 8.59034 151.463 8.70162 151.044 8.95633C150.477 8.99137 149.859 8.95507 149.283 8.98313C147.066 9.09084 146.994 10.7127 147.108 12.4984C148.1 12.6156 149.095 12.528 150.091 12.5107C150.469 12.5093 150.837 12.5693 151.118 12.8395C151.528 13.2351 151.46 13.8003 151.464 14.3334C151.345 14.584 151.31 14.6643 151.13 14.8731C150.695 15.1058 147.842 15.0224 147.049 15.074L147.051 22.7785C147.052 23.9462 147.135 25.1611 147.063 26.324C147.051 26.5185 147.039 26.8225 146.892 26.9672C146.652 27.2033 145.994 27.1805 145.669 27.1769C145.344 27.1733 144.871 27.1681 144.634 26.9184C144.365 26.6357 144.495 16.1582 144.506 15.0745C143.859 15.0042 141.866 15.1775 141.677 14.8089C140.179 11.8843 143.632 12.5522 144.498 12.5494Z" fill="#232121"/>
+        <path d="M2.91348 12.1291C4.11431 11.9597 5.23252 12.7753 5.43887 13.9711C5.64523 15.1669 4.86511 16.3105 3.67704 16.5539C2.87514 16.7181 2.04746 16.4326 1.51709 15.8087C0.986724 15.1849 0.837754 14.3217 1.12833 13.5559C1.41891 12.7902 2.10297 12.2435 2.91348 12.1291Z" fill="#232121"/>
+        <path d="M32.3632 12.5642C33.5299 12.1641 34.7993 12.7888 35.1948 13.9577C35.5903 15.1266 34.9613 16.3946 33.7916 16.786C32.6281 17.1753 31.3692 16.5498 30.9757 15.3871C30.5823 14.2244 31.2027 12.9622 32.3632 12.5642Z" fill="#232121"/>
+      </svg>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a class="nav-link" href="#/" data-route="home">Home</a>
+      <a class="nav-link" href="#/corporate" data-route="corporate">Corporate</a>
+      <a class="nav-link" href="#/services" data-route="services">Services</a>
+      <a class="nav-link" href="#/clients" data-route="clients">Clients</a>
+      <a class="nav-link" href="#/contact" data-route="contact">Contact</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;">
+      <div class="lang-switch">
+        <a href="FlexiGulf.html" class="active">EN</a>
+        <a href="FlexiGulf-ar.html">عر</a>
+      </div>
+      <a href="#/contact" class="nav-cta">
+        Request a proposal
+        <svg class="arrow" width="12" height="12" viewBox="0 0 12 12"><path d="M3 9L9 3M9 3H4M9 3V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============= APP MOUNT ============= -->
+<main id="app"></main>
+
+<!-- ============= FOOTER ============= -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h4>People, payroll &amp; compliance — handled, so you can grow.</h4>
+        <p>FlexiGulf is a Riyadh-based advisory helping international and local businesses operate confidently across the Kingdom.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="#/services">HR Outsourcing</a></li>
+          <li><a href="#/services">Accountancy &amp; Tax</a></li>
+          <li><a href="#/services">Visa &amp; Immigration</a></li>
+          <li><a href="#/services">GOSI &amp; Payroll</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="#/corporate">Corporate statements</a></li>
+          <li><a href="#/clients">Clients &amp; sectors</a></li>
+          <li><a href="#/contact">Contact</a></li>
+          <li><a href="#/contact">Careers</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Riyadh HQ</h5>
+        <ul>
+          <li>King Fahd Road, Olaya District<br/>Riyadh 12211, KSA</li>
+          <li><a href="mailto:hello@flexigulf.sa">hello@flexigulf.sa</a></li>
+          <li><a href="tel:+966112000000">+966 11 200 0000</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 FLEXIGULF — COMMERCIAL REG. 1010-XXXXXX</span>
+      <span style="display:flex;align-items:center;gap:20px;">
+        <span>LICENSED BY MHRSD · ZATCA COMPLIANT</span>
+        <span class="lang-switch" style="border-color:rgba(245,240,232,0.2);">
+          <a href="FlexiGulf.html" class="active" style="background:var(--gold);color:var(--ink);">EN</a>
+          <a href="FlexiGulf-ar.html" style="color:rgba(245,240,232,0.6);">عر</a>
+        </span>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"><span class="check">✓</span><span id="toastMsg">Message sent</span></div>
+
+<script>
+  // ---------- Tiny router ----------
+  const app = document.getElementById('app');
+  const navLinks = document.querySelectorAll('.nav-link');
+  const nav = document.getElementById('nav');
+
+  function route() {
+    const hash = (location.hash || '#/').replace('#','');
+    let view = 'home';
+    if (hash.startsWith('/corporate')) view = 'corporate';
+    else if (hash.startsWith('/services')) view = 'services';
+    else if (hash.startsWith('/clients')) view = 'clients';
+    else if (hash.startsWith('/contact')) view = 'contact';
+    navLinks.forEach(a => a.classList.toggle('active', a.dataset.route === view));
+    const html = views[view]();
+    app.innerHTML = '<div class="page-wrap">' + html + '</div>';
+    window.scrollTo({top: 0, behavior: 'instant'});
+    // bind view-specific interactions
+    setTimeout(bindDynamic, 20);
+  }
+
+  window.addEventListener('hashchange', route);
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 8);
+  });
+
+  function toast(msg) {
+    const t = document.getElementById('toast');
+    document.getElementById('toastMsg').textContent = msg;
+    t.classList.add('show');
+    clearTimeout(window._toastT);
+    window._toastT = setTimeout(() => t.classList.remove('show'), 3000);
+  }
+
+  // ---------- Shared atoms ----------
+  const ArrowUR = '<svg class="arrow" width="12" height="12" viewBox="0 0 12 12"><path d="M3 9L9 3M9 3H4M9 3V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  const ArrowR = '<svg width="14" height="14" viewBox="0 0 14 14"><path d="M3 7h8m0 0L7.5 3.5M11 7l-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+  // ---------- Views ----------
+  const views = {};
+
+  views.home = () => `
+    <div class="page">
+      <!-- HERO -->
+      <section class="hero">
+        <div class="hero-meta">
+          <span class="meta-item"><span style="display:inline-block;width:6px;height:6px;background:var(--gold);border-radius:50%;margin-right:8px;vertical-align:middle;"></span>Est. 2018 · Riyadh · Jeddah · Dammam</span>
+          <span class="meta-item">№ 001 — Introduction</span>
+        </div>
+        <div class="hero-grid">
+          <div>
+            <h1>
+              Human capital,<br/>
+              <span class="italic">expertly handled</span><br/>
+              <span class="amp">&amp;</span> locally rooted.
+            </h1>
+          </div>
+          <div class="hero-right">
+            <p class="hero-lede">FlexiGulf is an HR, finance and mobility partner for companies building in Saudi Arabia. We navigate GOSI, Qiwa, Muqeem and ZATCA so your team can focus on the work that matters.</p>
+            <div class="hero-ctas">
+              <a href="#/services" class="btn btn-primary">Explore services ${ArrowUR}</a>
+              <a href="#/contact" class="btn btn-ghost">Book a consultation</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Visual row -->
+        <div style="display:grid; grid-template-columns: 1fr 1.3fr; gap: 40px; margin-top: 72px;">
+          <div class="hero-visual" style="aspect-ratio: 3/4; background-image: url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800&q=80&fit=crop');">
+            <span class="hero-visual-tag">RIYADH · 2026</span>
+            <div class="hero-visual-caption">"Compliance you can forget about."</div>
+          </div>
+          <div style="display:flex; flex-direction: column; justify-content: flex-end; gap: 24px;">
+            <div class="hero-visual" style="aspect-ratio: 5/3; background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80&fit=crop');">
+              <span class="hero-visual-tag" style="background:var(--gold); color: var(--ink);">TEAM</span>
+            </div>
+            <div style="padding-top: 24px; border-top: 1px solid var(--hairline);">
+              <span class="eyebrow"><span class="dot"></span>What we do, in one line</span>
+              <p class="serif" style="font-size: 28px; line-height: 1.25; font-weight: 300; letter-spacing: -0.01em; margin-top: 16px; max-width: 560px;">
+                We run the <em style="color:var(--gold-deep)">administrative backbone</em> of your KSA operations — payroll, GOSI, visas, books and tax — on one monthly retainer.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="hero-stats">
+          <div class="stat"><div class="stat-num">320<span class="unit">+</span></div><div class="stat-label">Active client mandates</div></div>
+          <div class="stat"><div class="stat-num">14<span class="unit">k</span></div><div class="stat-label">Payslips processed monthly</div></div>
+          <div class="stat"><div class="stat-num">42</div><div class="stat-label">Nationalities onboarded in '25</div></div>
+          <div class="stat"><div class="stat-num">99.8<span class="unit">%</span></div><div class="stat-label">GOSI &amp; ZATCA compliance rate</div></div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Marquee -->
+    <div class="marquee">
+      <div class="marquee-track">
+        <span>
+          Payroll <span class="sep">✦</span> GOSI Compliance <span class="sep">✦</span> Iqama Renewals <span class="sep">✦</span> Saudization <span class="sep">✦</span> ZATCA E-Invoicing <span class="sep">✦</span> Employee Onboarding <span class="sep">✦</span> Work Visas <span class="sep">✦</span> Bookkeeping <span class="sep">✦</span> End-of-Service <span class="sep">✦</span> Muqeem <span class="sep">✦</span>
+        </span>
+        <span>
+          Payroll <span class="sep">✦</span> GOSI Compliance <span class="sep">✦</span> Iqama Renewals <span class="sep">✦</span> Saudization <span class="sep">✦</span> ZATCA E-Invoicing <span class="sep">✦</span> Employee Onboarding <span class="sep">✦</span> Work Visas <span class="sep">✦</span> Bookkeeping <span class="sep">✦</span> End-of-Service <span class="sep">✦</span> Muqeem <span class="sep">✦</span>
+        </span>
+      </div>
+    </div>
+
+    <!-- Services -->
+    <div class="page">
+      <section class="section">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow"><span class="dot"></span>Services · №02</span>
+            <h2 style="margin-top:20px">Three disciplines,<br/><span class="italic">one partner.</span></h2>
+          </div>
+          <p>Every FlexiGulf engagement is led by a senior partner and delivered by a dedicated team in Riyadh. We go deeper than a PEO and lighter than a Big Four — purpose-built for the Saudi market.</p>
+        </div>
+
+        <div class="services-grid">
+          ${serviceCard('01','HR Outsourcing','From onboarding and payroll to GOSI, Qiwa and Saudization planning — a single team managing your people operations end-to-end.', iconPeople)}
+          ${serviceCard('02','Accountancy &amp; Taxation','Full-cycle bookkeeping, IFRS-ready reporting, VAT and Zakat filings, and ZATCA e-invoicing (FATOORA) delivered on time, every month.', iconLedger)}
+          ${serviceCard('03','Visa &amp; Immigration','Block visas, work permits, family sponsorship and Muqeem support — we handle the MOFA / MOL / Jawazat loop so your talent arrives ready.', iconPassport)}
+        </div>
+      </section>
+    </div>
+
+    <!-- Approach (dark band) -->
+    <section class="approach">
+      <div class="approach-inner">
+        <div class="section-head approach-head">
+          <div>
+            <span class="eyebrow"><span class="dot"></span>Approach · №03</span>
+            <h2 style="margin-top:20px">A four-step rhythm,<br/>built for <span class="italic">Saudi scale.</span></h2>
+          </div>
+          <p>Onboarding with FlexiGulf takes under three weeks. After that, a predictable monthly cadence keeps your books closed, your GOSI filed, and your team paid — without you lifting a finger.</p>
+        </div>
+        <div class="steps">
+          ${step('01','Discovery','A working session with your CFO and People lead to map obligations, headcount plan and compliance gaps.')}
+          ${step('02','Transition','We migrate payroll, books and contracts onto our systems with zero downtime. Typically 14–21 days.')}
+          ${step('03','Operate','Monthly payroll, filings, visa renewals and financial reporting, delivered by your named partner.')}
+          ${step('04','Advise','Quarterly reviews covering Saudization, cost forecasts, expansion and regulatory changes.')}
+        </div>
+      </div>
+    </section>
+
+    <!-- Two-up feature -->
+    <div class="page">
+      <section class="two-up">
+        <div class="two-up-visual" style="background-image: url('https://images.unsplash.com/photo-1521791136064-7986c2920216?w=800&q=80&fit=crop');"></div>
+        <div>
+          <span class="eyebrow"><span class="dot"></span>Why FlexiGulf</span>
+          <h3>Local ground, <span class="italic">global discipline.</span></h3>
+          <p>Our founding partners come from Big Four audit, MNC payroll operations and Saudi immigration law. That's the standard we bring, wrapped around a boutique service model.</p>
+          <ul class="check-list">
+            <li>Senior partner on every mandate — never a junior-only team.</li>
+            <li>Bilingual (Arabic / English) reporting and client comms.</li>
+            <li>Native integrations with GOSI, Qiwa, Muqeem and ZATCA portals.</li>
+            <li>Flat monthly retainer — no per-ticket billing surprises.</li>
+            <li>SLA-backed response times: 4 business hours, guaranteed.</li>
+          </ul>
+          <div style="margin-top: 32px;">
+            <a href="#/corporate" class="btn btn-ghost">Read our corporate statements ${ArrowUR}</a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- CTA band -->
+    <section class="cta-band">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>Next step</span>
+        <h3 style="margin-top:16px">Tell us about your <span class="italic">Saudi footprint.</span></h3>
+        <p>Whether you're entering the Kingdom with 3 employees or restructuring a 300-person operation, we'll return a clear scope and fixed price within 48 hours.</p>
+        <div style="display:flex; gap:12px; flex-wrap:wrap;">
+          <a href="#/contact" class="btn btn-primary">Start a conversation ${ArrowUR}</a>
+          <a href="#/services" class="btn btn-ghost">See service scope</a>
+        </div>
+      </div>
+      <div>
+        <div style="display:flex; flex-direction: column; gap: 12px; border-left: 1px solid var(--hairline); padding-left: 40px;">
+          <span class="eyebrow">Direct line · Partner desk</span>
+          <div class="serif" style="font-size: 34px; font-weight: 300; line-height: 1.1;">+966 11 200 0000</div>
+          <div class="serif" style="font-size: 22px; font-style: italic; color: var(--gold-deep);">hello@flexigulf.sa</div>
+          <div class="mono" style="font-size: 11px; letter-spacing: 0.1em; color: var(--ink-mute); margin-top: 12px; text-transform: uppercase;">Sun – Thu · 08:30 – 17:30 AST</div>
+        </div>
+      </div>
+    </section>
+  `;
+
+  function serviceCard(num, title, desc, icon) {
+    return `
+      <a href="#/services" class="service-card">
+        <div style="display:flex; justify-content: space-between; align-items: flex-start;">
+          <div class="service-icon">${icon}</div>
+          <span class="service-num">№${num}</span>
+        </div>
+        <div class="service-title">${title}</div>
+        <div class="service-desc">${desc}</div>
+        <div class="service-cta">Learn more ${ArrowUR}</div>
+      </a>`;
+  }
+  function step(num, title, desc) {
+    return `<div class="step">
+      <div class="step-num">${num}</div>
+      <div class="step-title">${title}</div>
+      <div class="step-desc">${desc}</div>
+    </div>`;
+  }
+  const iconPeople = `<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="10" cy="10" r="4" stroke="currentColor" stroke-width="1.3"/><circle cx="19" cy="11" r="3" stroke="currentColor" stroke-width="1.3"/><path d="M3 22c0-3 3-5 7-5s7 2 7 5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><path d="M17 19c4 0 7 1 8 3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>`;
+  const iconLedger = `<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="5" y="4" width="18" height="20" stroke="currentColor" stroke-width="1.3"/><path d="M9 9h10M9 13h10M9 17h6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><path d="M5 4v20" stroke="currentColor" stroke-width="1.3"/></svg>`;
+  const iconPassport = `<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="5" y="3" width="18" height="22" stroke="currentColor" stroke-width="1.3"/><circle cx="14" cy="11" r="3.5" stroke="currentColor" stroke-width="1.3"/><path d="M10 19h8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>`;
+
+  // ---------- CORPORATE STATEMENTS ----------
+  views.corporate = () => `
+    <div class="page">
+      <section class="page-hero">
+        <span class="page-crumb">Corporate · Statements №001</span>
+        <h1>A firm built for <span class="italic">the long file.</span></h1>
+        <p style="max-width: 640px; margin-top: 24px; color: var(--ink-2); font-size: 17px;">FlexiGulf was founded to make operating in Saudi Arabia feel unremarkable — to take administrative weight off leadership teams so they can focus on the market, the product and the people.</p>
+      </section>
+
+      <section class="statements">
+        <aside class="statements-sidebar" id="stmtSide">
+          <button class="statement-tab active" data-s="mission"><span>Mission</span><span class="num">01</span></button>
+          <button class="statement-tab" data-s="vision"><span>Vision</span><span class="num">02</span></button>
+          <button class="statement-tab" data-s="values"><span>Values</span><span class="num">03</span></button>
+          <button class="statement-tab" data-s="commitment"><span>Commitment</span><span class="num">04</span></button>
+        </aside>
+        <div>
+          <article class="statement-card" id="stmt-mission">
+            <span class="eyebrow"><span class="dot"></span>Mission</span>
+            <h3>We make the back office <span class="italic">disappear.</span></h3>
+            <p class="lede">Our mission is to operate the HR, finance and mobility functions of ambitious companies in Saudi Arabia so they never have to think about compliance — only what compliance enables.</p>
+            <p>That means payroll that lands on the 27th without exception. It means Iqamas renewed before anyone remembers they were expiring. It means monthly management accounts in your inbox on the 5th business day — audit-ready, IFRS-compliant, bilingual.</p>
+            <p>We measure our mission in a single metric: how rarely a client has to email us about something going wrong.</p>
+          </article>
+
+          <article class="statement-card" id="stmt-vision">
+            <span class="eyebrow"><span class="dot"></span>Vision</span>
+            <h3>The default partner for <span class="italic">Vision 2030 operators.</span></h3>
+            <p class="lede">By 2030, FlexiGulf will be the first call for any international firm establishing in the Kingdom, and the quiet infrastructure behind hundreds of Saudi-founded scale-ups.</p>
+            <p>We believe the next decade of Saudi economic transformation will be carried by mid-market companies — 50 to 500 people, growing quickly, often new to the regulatory terrain. That is our client.</p>
+          </article>
+
+          <article class="statement-card" id="stmt-values">
+            <span class="eyebrow"><span class="dot"></span>Values</span>
+            <h3>Four principles. <span class="italic">No exceptions.</span></h3>
+            <div class="values-grid">
+              <div class="value">
+                <div class="value-num">№01</div>
+                <div class="value-title">Discretion</div>
+                <div class="value-desc">Payroll data, ownership structures and immigration files are handled with the confidentiality of a private bank.</div>
+              </div>
+              <div class="value">
+                <div class="value-num">№02</div>
+                <div class="value-title">Precision</div>
+                <div class="value-desc">Numbers are either right or they are wrong. We reconcile twice and ship once.</div>
+              </div>
+              <div class="value">
+                <div class="value-num">№03</div>
+                <div class="value-title">Proximity</div>
+                <div class="value-desc">A named partner, reachable on WhatsApp, who knows your business beyond the file notes.</div>
+              </div>
+              <div class="value">
+                <div class="value-num">№04</div>
+                <div class="value-title">Patience</div>
+                <div class="value-desc">We hold our clients for years, not engagements. Retention is our true KPI.</div>
+              </div>
+              <div class="value">
+                <div class="value-num">№05</div>
+                <div class="value-title">Plain language</div>
+                <div class="value-desc">Regulation is complex. Our advice should not be. We translate, always.</div>
+              </div>
+              <div class="value">
+                <div class="value-num">№06</div>
+                <div class="value-title">Place</div>
+                <div class="value-desc">We are Saudi-based, Saudi-licensed and Saudi-led. Our roots determine our advice.</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="statement-card" id="stmt-commitment">
+            <span class="eyebrow"><span class="dot"></span>Commitment</span>
+            <h3>Service guarantees, <span class="italic">in writing.</span></h3>
+            <p class="lede">Every FlexiGulf engagement is covered by a service charter with concrete, measurable commitments — not marketing promises.</p>
+            <ul class="check-list" style="margin-top: 24px;">
+              <li>Payroll processed and funded by the 27th of each month, every month.</li>
+              <li>GOSI, Qiwa and Muqeem filings within legal windows — or we credit the penalty.</li>
+              <li>Iqama and visa renewals initiated 60 days before expiry, automatically.</li>
+              <li>Monthly management accounts delivered by the 5th business day.</li>
+              <li>Four-business-hour response SLA on all client communications.</li>
+              <li>Annual strategy review with the founding partner, in person.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="leadership">
+        <div class="section-head" style="border: none; padding: 0; margin-bottom: 24px;">
+          <div>
+            <span class="eyebrow"><span class="dot"></span>Leadership · №05</span>
+            <h2 style="margin-top: 20px;">People behind <span class="italic">the practice.</span></h2>
+          </div>
+          <p>Our partners operate as signatories on every client account. They are the ones you call.</p>
+        </div>
+        <div class="leaders">
+          ${leader('Faisal Al-Rashid','Managing Partner · HR Practice','https://images.unsplash.com/photo-1566492031773-4f4e44671857?w=600&q=80&fit=crop&crop=faces')}
+          ${leader('Noura bint Khalid','Partner · Tax &amp; Advisory','https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80&fit=crop&crop=faces')}
+          ${leader('Omar Haddad','Partner · Immigration','https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&q=80&fit=crop&crop=faces')}
+        </div>
+      </section>
+    </div>
+  `;
+  function leader(name, role, img) {
+    return `<div>
+      <div class="leader-visual" style="background-image: url('${img}');"></div>
+      <div class="leader-name">${name}</div>
+      <div class="leader-role">${role}</div>
+    </div>`;
+  }
+
+  // ---------- SERVICES ----------
+  views.services = () => `
+    <div class="page">
+      <section class="page-hero">
+        <span class="page-crumb">Services &amp; Solutions · №002</span>
+        <h1>Everything between <span class="italic">hello</span> and <span class="italic">end-of-service.</span></h1>
+        <p style="max-width: 700px; margin-top: 24px; color: var(--ink-2); font-size: 17px;">Three practice areas, fully integrated. Engage one — or let us run the full administrative spine of your Saudi entity on a single retainer.</p>
+      </section>
+
+      <section class="services-page">
+        ${serviceDetail('01','HR Outsourcing','End-to-end people operations for Saudi-based teams of 5 to 500. We become your HR department — contracts, payroll, compliance and everything in between.', [
+          ['01','Payroll processing','Monthly salary runs, WPS-compliant transfers, payslip generation in Arabic and English.'],
+          ['02','GOSI administration','Registration, monthly contributions, adjustments and deregistration.'],
+          ['03','Saudization (Nitaqat)','Quota tracking, hiring plans and Qiwa filings to hit and hold your target band.'],
+          ['04','Onboarding &amp; offboarding','Employment contracts, background checks, inductions and end-of-service settlements.'],
+          ['05','Leave &amp; attendance','Digital leave management, time tracking and policy enforcement.'],
+          ['06','HR policy &amp; handbook','Labor-law-aligned handbooks, disciplinary frameworks and grievance procedures.']
+        ])}
+
+        ${serviceDetail('02','Accountancy &amp; Taxation','Monthly bookkeeping, statutory reporting, and full ZATCA and Zakat compliance — delivered by qualified accountants with KSA-specific experience.', [
+          ['01','Bookkeeping &amp; ledgers','Daily entries, bank reconciliation and chart-of-accounts design in IFRS-ready form.'],
+          ['02','Monthly management accounts','P&amp;L, balance sheet and cash-flow by the 5th business day, with commentary.'],
+          ['03','VAT filings','Quarterly VAT returns, input-output reconciliation and ZATCA correspondence.'],
+          ['04','Zakat &amp; corporate tax','Annual Zakat filings for Saudi entities, corporate income tax for foreign-owned.'],
+          ['05','ZATCA e-invoicing','FATOORA Phase 2 integration and ongoing compliance for B2B and B2C invoices.'],
+          ['06','Year-end &amp; audit support','Preparation of statutory financials and full audit liaison.']
+        ])}
+
+        ${serviceDetail('03','Visa &amp; Immigration','Every permit, every renewal, every dependent — managed end-to-end so your talent lands, settles and stays productive.', [
+          ['01','Block visas','Securing entry-visa allocations from the Ministry of Labor for new hires.'],
+          ['02','Work permits &amp; Iqama','Initial issuance, renewals, transfers and cancellations.'],
+          ['03','Family sponsorship','Dependent visas, family residency and associated Muqeem registrations.'],
+          ['04','Exit/re-entry &amp; final exit','Routine travel permissions and end-of-employment exit formalities.'],
+          ['05','Profession changes','Updating Iqama professions to reflect actual roles — critical for Saudization.'],
+          ['06','Advisory on mobility','Strategic advice on sponsorship structures, GCC transfers and investor visas.']
+        ])}
+      </section>
+
+      <section class="cta-band" style="margin-top: 80px;">
+        <div>
+          <span class="eyebrow"><span class="dot"></span>Scoping</span>
+          <h3 style="margin-top:16px">Bundle the three, <span class="italic">save the fourth.</span></h3>
+          <p>Clients who engage us across all three practice areas pay a single integrated retainer that typically lands 25% below the sum of the parts — because our internal workflows are already connected.</p>
+          <a href="#/contact" class="btn btn-primary">Request an integrated quote ${ArrowUR}</a>
+        </div>
+        <div style="border-left:1px solid var(--hairline); padding-left: 40px;">
+          <span class="eyebrow">Sample retainer · 50-headcount</span>
+          <div class="serif" style="font-size: 48px; font-weight: 300; margin-top: 16px; letter-spacing:-0.02em;">SAR 18,500<span style="font-size: 16px; color: var(--ink-mute); font-family: 'Inter', sans-serif;">/mo</span></div>
+          <div style="font-size: 13px; color: var(--ink-mute); margin-top: 8px;">All-in, monthly invoice, one partner, one team.</div>
+        </div>
+      </section>
+    </div>
+  `;
+  function serviceDetail(num, title, desc, feats) {
+    return `<div class="service-detail">
+      <div class="service-detail-left">
+        <span class="eyebrow"><span class="dot"></span>Practice · №${num}</span>
+        <h3>${title}</h3>
+        <p>${desc}</p>
+        <a href="#/contact" class="btn btn-ghost">Request scope ${ArrowUR}</a>
+      </div>
+      <div class="service-features">
+        ${feats.map(f => `<div class="feat">
+          <div class="feat-num">${f[0]}</div>
+          <div>
+            <div class="feat-title">${f[1]}</div>
+            <div class="feat-desc">${f[2]}</div>
+          </div>
+        </div>`).join('')}
+      </div>
+    </div>`;
+  }
+
+  // ---------- CLIENTS ----------
+  views.clients = () => `
+    <div class="page">
+      <section class="page-hero">
+        <span class="page-crumb">Clients · №003</span>
+        <h1>Operators we are <span class="italic">proud to serve.</span></h1>
+        <p style="max-width: 680px; margin-top: 24px; color: var(--ink-2); font-size: 17px;">A portfolio of 320+ active mandates — from venture-backed scale-ups and regional family offices to multinationals establishing their first KSA entity.</p>
+      </section>
+
+      <section style="padding: 60px 0 20px;">
+        <span class="eyebrow"><span class="dot"></span>Selected clients · Identifiable with permission</span>
+      </section>
+
+      <div class="clients-grid">
+        ${client('Madarij Capital','Investment','Retained since 2020 · Payroll + Tax')}
+        ${client('Zenith Health KSA','Healthcare','Full back-office, 180 staff')}
+        ${client('Helio Energy','Renewables','Entity setup + mobility')}
+        ${client('Atlas Logistics','Transport','Saudization to Platinum band')}
+        ${client('Qasr Hospitality','Hospitality','Multi-site payroll, 6 properties')}
+        ${client('Northwind Tech','SaaS / Tech','Remote-first KSA hub, 35 engineers')}
+        ${client('Amber Retail','Retail','Seasonal workforce mgmt · 400 peaks')}
+        ${client('Silver Arab Media','Media','Bilingual HR + production visas')}
+        ${client('Levant Foods','F&amp;B / FMCG','ZATCA Phase 2 rollout')}
+        ${client('Pearl Properties','Real Estate','End-to-end finance function')}
+        ${client('Vertex Legal','Professional Services','Compliance officer on retainer')}
+        ${client('Taqwa EdTech','Education','Residency for 28 expat teachers')}
+      </div>
+
+      <section class="sectors">
+        <div class="section-head" style="border: none; padding: 0; margin-bottom: 24px;">
+          <div>
+            <span class="eyebrow"><span class="dot"></span>Sectors · Depth</span>
+            <h2 style="margin-top: 20px;">Where we go <span class="italic">deep.</span></h2>
+          </div>
+          <p>Industry-specific knowledge matters — labor shapes, sponsorship categories and VAT treatments differ. Our partners specialize.</p>
+        </div>
+        <div class="sector-list">
+          ${sector('01','Technology &amp; SaaS','58 clients')}
+          ${sector('02','Healthcare &amp; Life Sciences','34 clients')}
+          ${sector('03','Energy &amp; Renewables','22 clients')}
+          ${sector('04','Financial Services','41 clients')}
+          ${sector('05','Logistics &amp; Transport','28 clients')}
+          ${sector('06','Hospitality &amp; F&amp;B','46 clients')}
+          ${sector('07','Retail &amp; Consumer Goods','39 clients')}
+          ${sector('08','Professional Services','52 clients')}
+        </div>
+      </section>
+    </div>
+
+    <section class="testimonial">
+      <div class="testimonial-inner">
+        <span class="eyebrow"><span class="dot"></span>In their words</span>
+        <div id="testiQuote" style="margin-top: 32px;">
+          <div class="testimonial-quote">
+            <span class="mark">“</span>We moved from a Big Four provider to FlexiGulf expecting a step down in rigor. Two years in, the accounts close faster, the payroll is quieter, and I have a partner who picks up the phone on a Friday.<span class="mark">”</span>
+          </div>
+          <div class="testimonial-meta">
+            <span class="name">SARA M.</span>
+            <span>·</span>
+            <span>CFO, Madarij Capital</span>
+          </div>
+        </div>
+        <div class="testi-nav" id="testiNav">
+          <button class="testi-dot active" data-i="0"></button>
+          <button class="testi-dot" data-i="1"></button>
+          <button class="testi-dot" data-i="2"></button>
+        </div>
+      </div>
+    </section>
+
+    <div class="page">
+      <section class="cta-band" style="margin-top: 0;">
+        <div>
+          <span class="eyebrow"><span class="dot"></span>Become a client</span>
+          <h3 style="margin-top:16px">Join a <span class="italic">careful portfolio.</span></h3>
+          <p>We take on a limited number of new mandates each quarter to preserve the quality of our attention. If you're considering a change, we'd welcome a conversation.</p>
+          <a href="#/contact" class="btn btn-primary">Introduce your company ${ArrowUR}</a>
+        </div>
+        <div style="border-left:1px solid var(--hairline); padding-left: 40px;">
+          <span class="eyebrow">Current quarter intake</span>
+          <div class="serif" style="font-size: 56px; font-weight: 300; margin-top: 12px; letter-spacing:-0.02em;">6<span style="color:var(--gold-deep); font-style:italic;"> of 12</span></div>
+          <div style="font-size: 13px; color: var(--ink-mute); margin-top: 4px;">new mandate slots remaining — Q2 2026.</div>
+        </div>
+      </section>
+    </div>
+  `;
+  function client(name, sector, note) {
+    return `<div class="client-cell">
+      <span class="client-sector">${sector}</span>
+      <span class="client-name">${name}</span>
+      <span class="client-note">${note}</span>
+    </div>`;
+  }
+  function sector(num, name, count) {
+    return `<div class="sector">
+      <span class="sector-num">${num}</span>
+      <span class="sector-name">${name}</span>
+      <span class="sector-count">${count}</span>
+    </div>`;
+  }
+
+  // ---------- CONTACT ----------
+  views.contact = () => `
+    <div class="page">
+      <section class="page-hero">
+        <span class="page-crumb">Contact · №004</span>
+        <h1>Let's have <span class="italic">a proper conversation.</span></h1>
+        <p style="max-width: 640px; margin-top: 24px; color: var(--ink-2); font-size: 17px;">Share a few details and a partner will respond within one business day with a scoping questionnaire or a meeting slot — whichever you prefer.</p>
+      </section>
+
+      <section class="contact-page">
+        <div class="contact-grid">
+          <form class="contact-form" id="contactForm">
+            <div class="field-row">
+              <div class="field">
+                <label for="cf-name">Your name</label>
+                <input id="cf-name" name="name" type="text" placeholder="e.g. Sara Al-Mansour" required/>
+              </div>
+              <div class="field">
+                <label for="cf-company">Company</label>
+                <input id="cf-company" name="company" type="text" placeholder="Company name" required/>
+              </div>
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="cf-email">Email</label>
+                <input id="cf-email" name="email" type="email" placeholder="name@company.com" required/>
+              </div>
+              <div class="field">
+                <label for="cf-phone">Phone (optional)</label>
+                <input id="cf-phone" name="phone" type="tel" placeholder="+966 ..."/>
+              </div>
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="cf-size">Team size in KSA</label>
+                <select id="cf-size" name="size">
+                  <option>Just founders</option>
+                  <option>1 – 10</option>
+                  <option selected>11 – 50</option>
+                  <option>51 – 200</option>
+                  <option>200+</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="cf-stage">Status</label>
+                <select id="cf-stage" name="stage">
+                  <option>Exploring entry to KSA</option>
+                  <option selected>Entity established, operations early</option>
+                  <option>Operating, reviewing providers</option>
+                  <option>Growing / restructuring</option>
+                </select>
+              </div>
+            </div>
+            <div class="field">
+              <label>Services of interest</label>
+              <div class="service-chips" id="chips">
+                <button type="button" class="chip active" data-s="hr">HR Outsourcing</button>
+                <button type="button" class="chip" data-s="acc">Accountancy &amp; Tax</button>
+                <button type="button" class="chip" data-s="visa">Visa &amp; Immigration</button>
+                <button type="button" class="chip" data-s="all">Integrated retainer</button>
+              </div>
+            </div>
+            <div class="field">
+              <label for="cf-msg">What would you like us to help with?</label>
+              <textarea id="cf-msg" name="message" placeholder="A few lines about where you are and what you need — no pressure to be exhaustive."></textarea>
+            </div>
+            <div style="display:flex; gap:16px; align-items:center; padding-top: 12px;">
+              <button type="submit" class="btn btn-primary">Send to partner desk ${ArrowUR}</button>
+              <span class="mono" style="font-size: 11px; color: var(--ink-mute); letter-spacing: 0.1em; text-transform: uppercase;">Response within 1 business day</span>
+            </div>
+          </form>
+
+          <aside class="contact-info">
+            <div class="info-block">
+              <h4>Riyadh · Headquarters</h4>
+              <p>King Fahd Road, Olaya District<br/>Tower 7, Floor 18<br/>Riyadh 12211, KSA</p>
+            </div>
+            <div class="info-block">
+              <h4>Partner desk</h4>
+              <p><a href="mailto:hello@flexigulf.sa">hello@flexigulf.sa</a></p>
+              <p><a href="tel:+966112000000">+966 11 200 0000</a></p>
+              <p class="info-small" style="margin-top: 8px;">Sunday – Thursday · 08:30 – 17:30 AST</p>
+            </div>
+            <div class="info-block" style="border: none;">
+              <h4>Regional offices</h4>
+              <p style="font-size: 17px;">Jeddah — Corniche Commercial<br/>Dammam — Business Gate</p>
+              <p class="info-small" style="margin-top: 8px;">By appointment, led by the Riyadh partner team.</p>
+            </div>
+          </aside>
+        </div>
+
+        <div class="map-placeholder">
+          <span class="map-label">MAP — OLAYA, RIYADH · 24.6937° N, 46.6857° E</span>
+          <div class="map-pin"></div>
+        </div>
+      </section>
+    </div>
+  `;
+
+  // ---------- Dynamic bindings per view ----------
+  function bindDynamic() {
+    // corporate statements sidebar
+    document.querySelectorAll('#stmtSide .statement-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('#stmtSide .statement-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        const id = 'stmt-' + tab.dataset.s;
+        const target = document.getElementById(id);
+        if (target) {
+          const y = target.getBoundingClientRect().top + window.scrollY - 100;
+          window.scrollTo({top: y, behavior: 'smooth'});
+        }
+      });
+    });
+
+    // contact chips
+    document.querySelectorAll('#chips .chip').forEach(c => {
+      c.addEventListener('click', () => c.classList.toggle('active'));
+    });
+
+    // contact form
+    const form = document.getElementById('contactForm');
+    if (form) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('cf-name').value.trim() || 'there';
+        toast('Thanks ' + name.split(' ')[0] + ' — a partner will be in touch.');
+        form.reset();
+        document.querySelectorAll('#chips .chip').forEach(c => c.classList.remove('active'));
+        document.querySelector('#chips .chip[data-s="hr"]').classList.add('active');
+      });
+    }
+
+    // testimonial carousel
+    const quotes = [
+      {
+        q: 'We moved from a Big Four provider to FlexiGulf expecting a step down in rigor. Two years in, the accounts close faster, the payroll is quieter, and I have a partner who picks up the phone on a Friday.',
+        name: 'SARA M.', role: 'CFO, Madarij Capital'
+      },
+      {
+        q: 'Our expansion into Riyadh took four months, not fourteen. FlexiGulf handled the block visas, the GOSI registration, the first payroll — we just showed up ready to sell.',
+        name: 'JAMES O.', role: 'Regional MD, Northwind Tech'
+      },
+      {
+        q: 'What we value most is the predictability. Every month, at exactly the same time, the same documents arrive. In a business like ours, that quiet is worth a great deal.',
+        name: 'MOHAMMED A.', role: 'CEO, Zenith Health KSA'
+      }
+    ];
+    const dots = document.querySelectorAll('#testiNav .testi-dot');
+    const quoteBox = document.getElementById('testiQuote');
+    if (dots.length && quoteBox) {
+      let i = 0;
+      const render = () => {
+        const q = quotes[i];
+        quoteBox.innerHTML = `<div class="testimonial-quote"><span class="mark">&ldquo;</span>${q.q}<span class="mark">&rdquo;</span></div>
+          <div class="testimonial-meta"><span class="name">${q.name}</span><span>·</span><span>${q.role}</span></div>`;
+        dots.forEach((d, di) => d.classList.toggle('active', di === i));
+      };
+      dots.forEach(d => d.addEventListener('click', () => { i = +d.dataset.i; render(); }));
+      clearInterval(window._tInt);
+      window._tInt = setInterval(() => { i = (i + 1) % quotes.length; render(); }, 7000);
+    }
+  }
+
+  // initial
+  if (!location.hash) location.hash = '#/';
+  route();
+</script>
+
+</body>
+</html>
