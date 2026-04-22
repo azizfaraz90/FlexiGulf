@@ -154,9 +154,10 @@
     border-bottom: 1px solid var(--hairline);
   }
   .stat {
-    padding: 28px 24px 28px 0;
+    padding: 28px 24px 28px 24px;
     border-right: 1px solid var(--hairline);
   }
+  .stat:first-child { padding-left: 0; }
   .stat:last-child { border-right: none; padding-right: 0; }
   .stat-num { font-family: 'Fraunces', serif; font-size: 48px; line-height: 1; font-weight: 400; letter-spacing: -0.02em; }
   .stat-num .unit { font-size: 22px; color: var(--gold); margin-left: 4px; }
@@ -262,9 +263,10 @@
   .approach-head p { color: rgba(245,240,232,0.7); }
   .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
   .step {
-    padding: 32px 24px 32px 0; border-right: 1px solid rgba(245,240,232,0.15);
+    padding: 32px 24px 32px 24px; border-right: 1px solid rgba(245,240,232,0.15);
     display: flex; flex-direction: column; gap: 16px;
   }
+  .step:first-child { padding-left: 0; }
   .step:last-child { border-right: none; }
   .step-num { font-family: 'Fraunces', serif; font-style: italic; font-size: 60px; color: var(--gold); line-height: 1; }
   .step-title { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 400; }
@@ -539,7 +541,7 @@
     .hero { padding: 48px 0 60px; }
     .hero-grid { grid-template-columns: 1fr; gap: 40px; }
     .hero-stats { grid-template-columns: repeat(2, 1fr); }
-    .stat:nth-child(2n) { border-right: none; padding-left: 24px; }
+    .stat:nth-child(2n) { border-right: none; padding-right: 0; }
     .section-head { grid-template-columns: 1fr; gap: 24px; }
     .services-grid { grid-template-columns: 1fr; }
     .steps { grid-template-columns: 1fr 1fr; }
