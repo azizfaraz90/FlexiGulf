@@ -539,15 +539,15 @@
     .hero { padding: 48px 0 60px; }
     .hero-grid { grid-template-columns: 1fr; gap: 40px; }
     .hero-stats { grid-template-columns: repeat(2, 1fr); }
-    .stat:nth-child(2) { border-right: none; }
+    .stat:nth-child(2n) { border-right: none; padding-left: 24px; }
     .section-head { grid-template-columns: 1fr; gap: 24px; }
     .services-grid { grid-template-columns: 1fr; }
     .steps { grid-template-columns: 1fr 1fr; }
     .two-up { grid-template-columns: 1fr; padding: 60px 0; }
     .cta-band { grid-template-columns: 1fr; padding: 60px 28px; margin: 40px 20px; }
     .footer-top { grid-template-columns: 1fr; gap: 40px; }
-    .statements { grid-template-columns: 1fr; gap: 24px; }
-    .statements-sidebar { position: static; flex-direction: row; overflow-x: auto; }
+    .statements { grid-template-columns: 1fr; gap: 24px; padding: 48px 0; }
+    .statements-sidebar { position: static; flex-direction: row; overflow-x: auto; flex-wrap: wrap; gap: 0; }
     .values-grid { grid-template-columns: 1fr; }
     .leaders { grid-template-columns: 1fr; }
     .service-detail { grid-template-columns: 1fr; gap: 32px; }

@@ -110,7 +110,7 @@ img,svg{display:block}
 .two-up h3 .accent{color:var(--gold-deep)}
 .two-up p{color:var(--ink-2);font-size:15px;margin-bottom:14px;line-height:1.75}
 .check-list{list-style:none;margin-top:24px;display:flex;flex-direction:column;gap:12px}
-.check-list li{display:flex;gap:12px;align-items:flex-start;font-size:14px;flex-direction:row-reverse;text-align:right}
+.check-list li{display:flex;gap:12px;align-items:flex-start;font-size:14px;flex-direction:row-reverse;text-align:right;justify-content:flex-end}
 .check-list li::after{content:'';width:16px;height:16px;flex-shrink:0;margin-top:3px;background:var(--gold);clip-path:polygon(0 50%,40% 100%,100% 0%,40% 80%);transform:scaleX(-1)}
 
 /* CTA BAND */
@@ -244,11 +244,14 @@ footer{background:var(--charcoal);color:var(--cream);padding:80px 0 32px}
   .page{padding:0 20px}
   .hero{padding:48px 0 60px}
   .hero-grid,.two-up,.contact-grid,.cta-band,.footer-top,.statements,.service-detail{grid-template-columns:1fr}
-  .hero-stats,.services-grid,.clients-grid,.values-grid,.steps,.sector-list{grid-template-columns:1fr 1fr}
+  .hero-stats,.clients-grid,.values-grid,.steps,.sector-list{grid-template-columns:1fr 1fr}
+  .services-grid{grid-template-columns:1fr}
   .sector-row{border-left:none;padding-left:0}
   .stat:nth-child(2n+1){border-right:none}
+  .stat:nth-child(2n){padding-right:24px}
   .step:nth-child(2n+1){border-right:none}
-  .statements-sidebar{position:relative;top:auto;flex-direction:row;overflow-x:auto}
+  .statements{padding:48px 0}
+  .statements-sidebar{position:relative;top:auto;flex-direction:row;overflow-x:auto;flex-wrap:wrap;gap:0}
   .sdl{position:static}
   .two-up,.section{padding:60px 0}
   .cta-band{padding:60px 28px;margin:40px 20px}
