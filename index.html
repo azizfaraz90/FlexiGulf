@@ -542,9 +542,12 @@
     .hero-grid { grid-template-columns: 1fr; gap: 40px; }
     .hero-stats { grid-template-columns: repeat(2, 1fr); }
     .stat:nth-child(2n) { border-right: none; padding-right: 0; }
+    .stat:nth-child(2n+1) { padding-left: 0; }
     .section-head { grid-template-columns: 1fr; gap: 24px; }
     .services-grid { grid-template-columns: 1fr; }
     .steps { grid-template-columns: 1fr 1fr; }
+    .step:nth-child(2n) { border-right: none; }
+    .step:nth-child(2n+1) { padding-left: 0; }
     .two-up { grid-template-columns: 1fr; padding: 60px 0; }
     .cta-band { grid-template-columns: 1fr; padding: 60px 28px; margin: 40px 20px; }
     .footer-top { grid-template-columns: 1fr; gap: 40px; }
