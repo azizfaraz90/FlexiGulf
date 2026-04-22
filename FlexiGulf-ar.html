@@ -58,7 +58,7 @@ img,svg{display:block}
 .hero-lede{font-size:17px;color:var(--ink-2);line-height:1.75;max-width:440px;margin-bottom:32px}
 .hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
 .hero-stats{margin-top:80px;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline)}
-.stat{padding:28px 0 28px 24px;border-right:1px solid var(--hairline)}
+.stat{padding:28px 24px 28px 0;border-right:1px solid var(--hairline)}
 .stat:first-child{border-right:none;padding-right:0}
 .stat-num{font-family:'Fraunces',serif;font-size:48px;line-height:1;font-weight:400;letter-spacing:-.02em;direction:ltr;text-align:right}
 .stat-num .unit{font-size:22px;color:var(--gold)}
@@ -98,7 +98,7 @@ img,svg{display:block}
 .approach{background:var(--ink);color:var(--cream);margin:60px 0}
 .approach-inner{max-width:1360px;margin:0 auto;padding:100px 40px}
 .steps{display:grid;grid-template-columns:repeat(4,1fr)}
-.step{padding:32px 0 32px 24px;border-right:1px solid rgba(245,240,232,.15);display:flex;flex-direction:column;gap:16px;text-align:right}
+.step{padding:32px 24px 32px 0;border-right:1px solid rgba(245,240,232,.15);display:flex;flex-direction:column;gap:16px;text-align:right}
 .step:first-child{border-right:none;padding-right:0}
 .step-num{font-family:'Fraunces',serif;font-style:italic;font-size:60px;color:var(--gold);line-height:1;direction:ltr;text-align:right}
 .step-title{font-family:'Noto Naskh Arabic',serif;font-size:22px;font-weight:700}
@@ -247,9 +247,8 @@ footer{background:var(--charcoal);color:var(--cream);padding:80px 0 32px}
   .hero-stats,.clients-grid,.values-grid,.steps,.sector-list{grid-template-columns:1fr 1fr}
   .services-grid{grid-template-columns:1fr}
   .sector-row{border-left:none;padding-left:0}
-  .stat:nth-child(2n+1){border-right:none}
-  .stat:nth-child(2n){padding-right:24px}
-  .step:nth-child(2n+1){border-right:none}
+  .stat:nth-child(2n+1){border-right:none;padding-right:0}
+  .step:nth-child(2n+1){border-right:none;padding-right:0}
   .statements{padding:48px 0}
   .statements-sidebar{position:relative;top:auto;flex-direction:row;overflow-x:auto;flex-wrap:wrap;gap:0}
   .sdl{position:static}
